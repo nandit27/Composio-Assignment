@@ -1,0 +1,242 @@
+{
+  "note": "Rows with recheck_status != 'ok' excluded from this calculation",
+  "ok_rows_used": 120,
+  "field_agreement": {
+    "auth_methods": {
+      "total_ok_checked": 20,
+      "agree": 2,
+      "disagree": 18,
+      "agreement_pct": 10.0,
+      "disagree_examples": [
+        {
+          "app": "Airtable",
+          "pass1": "apikey,oauth2",
+          "recheck": "apikey,oauth"
+        },
+        {
+          "app": "Clay",
+          "pass1": "apikey,jwt",
+          "recheck": ""
+        },
+        {
+          "app": "Copper",
+          "pass1": "apikey,oauth2",
+          "recheck": "oauth20"
+        },
+        {
+          "app": "DealCloud",
+          "pass1": "apikey,oauth2",
+          "recheck": ""
+        },
+        {
+          "app": "Ecwid",
+          "pass1": "apikey,oauth2",
+          "recheck": "oauth20"
+        }
+      ],
+      "diagnosis": "\ud83d\udd27 Low agreement but likely normalization issue (list ordering/naming variations, not semantic disagreement) \u2014 check disagree_examples"
+    },
+    "self_serve_status": {
+      "total_ok_checked": 20,
+      "agree": 9,
+      "disagree": 11,
+      "agreement_pct": 45.0,
+      "disagree_examples": [
+        {
+          "app": "Copper",
+          "pass1": "selfservetrial",
+          "recheck": "selfservefree"
+        },
+        {
+          "app": "DealCloud",
+          "pass1": "gatedpaidplan",
+          "recheck": "gatedapproval"
+        },
+        {
+          "app": "Ecwid",
+          "pass1": "gatedpaidplan",
+          "recheck": "selfservefree"
+        },
+        {
+          "app": "Mailchimp",
+          "pass1": "selfservefree",
+          "recheck": "selfservetrial"
+        },
+        {
+          "app": "Mermaid CLI",
+          "pass1": "selfservefree",
+          "recheck": "opensourceselfhost"
+        }
+      ],
+      "diagnosis": "\u26a0\ufe0f  Very low agreement \u2014 likely a prompt ambiguity or schema interpretation issue; consider tightening the Pass 1 prompt for this field"
+    },
+    "api_surface": {
+      "total_ok_checked": 20,
+      "agree": 14,
+      "disagree": 6,
+      "agreement_pct": 70.0,
+      "disagree_examples": [
+        {
+          "app": "DealCloud",
+          "pass1": "rest",
+          "recheck": "nonepublic"
+        },
+        {
+          "app": "Paygent Connect",
+          "pass1": "rest",
+          "recheck": "nonepublic"
+        },
+        {
+          "app": "Twilio",
+          "pass1": "restandgraphql",
+          "recheck": "rest"
+        },
+        {
+          "app": "Waterfall.io",
+          "pass1": "rest",
+          "recheck": "nonepublic"
+        },
+        {
+          "app": "Zoho Cliq",
+          "pass1": "rest",
+          "recheck": "nonepublic"
+        }
+      ],
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    "api_breadth": {
+      "total_ok_checked": 20,
+      "agree": 13,
+      "disagree": 7,
+      "agreement_pct": 65.0,
+      "disagree_examples": [
+        {
+          "app": "Copper",
+          "pass1": "moderate",
+          "recheck": "broad"
+        },
+        {
+          "app": "DealCloud",
+          "pass1": "broad",
+          "recheck": "narrow"
+        },
+        {
+          "app": "GoHighLevel",
+          "pass1": "broad",
+          "recheck": "moderate"
+        },
+        {
+          "app": "Paygent Connect",
+          "pass1": "moderate",
+          "recheck": "none"
+        },
+        {
+          "app": "Waterfall.io",
+          "pass1": "broad",
+          "recheck": "narrow"
+        }
+      ],
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    "has_mcp": {
+      "total_ok_checked": 20,
+      "agree": 14,
+      "disagree": 6,
+      "agreement_pct": 70.0,
+      "disagree_examples": [
+        {
+          "app": "DealCloud",
+          "pass1": "official",
+          "recheck": "none"
+        },
+        {
+          "app": "Gumroad",
+          "pass1": "none",
+          "recheck": "official"
+        },
+        {
+          "app": "Mermaid CLI",
+          "pass1": "none",
+          "recheck": "official"
+        },
+        {
+          "app": "Paygent Connect",
+          "pass1": "unknown",
+          "recheck": "none"
+        },
+        {
+          "app": "Zoho Cliq",
+          "pass1": "official",
+          "recheck": "none"
+        }
+      ],
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    "buildability_verdict": {
+      "total_ok_checked": 20,
+      "agree": 11,
+      "disagree": 9,
+      "agreement_pct": 55.0,
+      "disagree_examples": [
+        {
+          "app": "Airtable",
+          "pass1": "readywithfriction",
+          "recheck": "ready"
+        },
+        {
+          "app": "DealCloud",
+          "pass1": "readywithfriction",
+          "recheck": "blocked"
+        },
+        {
+          "app": "Gumroad",
+          "pass1": "readywithfriction",
+          "recheck": "ready"
+        },
+        {
+          "app": "Linear",
+          "pass1": "readywithfriction",
+          "recheck": "ready"
+        },
+        {
+          "app": "Paygent Connect",
+          "pass1": "readywithfriction",
+          "recheck": "blocked"
+        }
+      ],
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    }
+  },
+  "ranked_worst_to_best": [
+    {
+      "field": "auth_methods",
+      "agreement_pct": 10.0,
+      "diagnosis": "\ud83d\udd27 Low agreement but likely normalization issue (list ordering/naming variations, not semantic disagreement) \u2014 check disagree_examples"
+    },
+    {
+      "field": "self_serve_status",
+      "agreement_pct": 45.0,
+      "diagnosis": "\u26a0\ufe0f  Very low agreement \u2014 likely a prompt ambiguity or schema interpretation issue; consider tightening the Pass 1 prompt for this field"
+    },
+    {
+      "field": "buildability_verdict",
+      "agreement_pct": 55.0,
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    {
+      "field": "api_breadth",
+      "agreement_pct": 65.0,
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    {
+      "field": "api_surface",
+      "agreement_pct": 70.0,
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    },
+    {
+      "field": "has_mcp",
+      "agreement_pct": 70.0,
+      "diagnosis": "\ud83d\udd36 Moderate agreement \u2014 some genuine judgment call expected, but worth reviewing disagreements"
+    }
+  ]
+}

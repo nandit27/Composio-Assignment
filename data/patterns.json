@@ -1,0 +1,351 @@
+{
+  "total_apps": 100,
+  "auth_method_distribution": {
+    "overall": {
+      "api_key": 82,
+      "oauth2": 69,
+      "basic_auth": 16,
+      "jwt": 8,
+      "service_account": 3,
+      "token": 2,
+      "session_tokens": 1,
+      "bearer_token": 1,
+      "application_key": 1,
+      "oauth1": 1
+    },
+    "by_category": {
+      "Data & Scraping": {
+        "api_key": 9,
+        "basic_auth": 2,
+        "jwt": 1,
+        "oauth2": 1
+      },
+      "Messaging & Comms": {
+        "api_key": 8,
+        "oauth2": 7,
+        "jwt": 2,
+        "basic_auth": 2
+      },
+      "CRM": {
+        "api_key": 10,
+        "oauth2": 10,
+        "jwt": 1,
+        "service_account": 1
+      },
+      "Marketing & Ads": {
+        "oauth2": 8,
+        "api_key": 7,
+        "basic_auth": 1
+      },
+      "E-Commerce": {
+        "oauth2": 8,
+        "api_key": 8,
+        "basic_auth": 2,
+        "session_tokens": 1,
+        "jwt": 1,
+        "oauth1": 1,
+        "token": 1
+      },
+      "AI & Research Tools": {
+        "api_key": 8,
+        "oauth2": 6,
+        "service_account": 1
+      },
+      "Fintech & Payments": {
+        "oauth2": 7,
+        "api_key": 6,
+        "basic_auth": 1,
+        "token": 1
+      },
+      "Productivity & PM": {
+        "api_key": 10,
+        "oauth2": 9,
+        "basic_auth": 1,
+        "service_account": 1
+      },
+      "Customer Support": {
+        "api_key": 7,
+        "oauth2": 5,
+        "basic_auth": 5
+      },
+      "Dev Tools & Infra": {
+        "api_key": 9,
+        "oauth2": 8,
+        "jwt": 3,
+        "basic_auth": 2,
+        "bearer_token": 1,
+        "application_key": 1
+      }
+    }
+  },
+  "self_serve_vs_gated": {
+    "overall": {
+      "self_serve": 73,
+      "gated": 26,
+      "self_serve_pct": 73.0,
+      "gated_pct": 26.0
+    },
+    "status_distribution": {
+      "self_serve_trial": 44,
+      "self_serve_free": 29,
+      "gated_paid_plan": 24,
+      "gated_approval": 2,
+      "unknown": 1
+    },
+    "by_category": {
+      "Data & Scraping": {
+        "self_serve": 8,
+        "gated": 2,
+        "total": 10,
+        "self_serve_pct": 80.0,
+        "gated_pct": 20.0
+      },
+      "Messaging & Comms": {
+        "self_serve": 10,
+        "gated": 0,
+        "total": 10,
+        "self_serve_pct": 100.0,
+        "gated_pct": 0.0
+      },
+      "CRM": {
+        "self_serve": 8,
+        "gated": 2,
+        "total": 10,
+        "self_serve_pct": 80.0,
+        "gated_pct": 20.0
+      },
+      "Marketing & Ads": {
+        "self_serve": 8,
+        "gated": 2,
+        "total": 10,
+        "self_serve_pct": 80.0,
+        "gated_pct": 20.0
+      },
+      "E-Commerce": {
+        "self_serve": 5,
+        "gated": 5,
+        "total": 10,
+        "self_serve_pct": 50.0,
+        "gated_pct": 50.0
+      },
+      "AI & Research Tools": {
+        "self_serve": 5,
+        "gated": 5,
+        "total": 10,
+        "self_serve_pct": 50.0,
+        "gated_pct": 50.0
+      },
+      "Fintech & Payments": {
+        "self_serve": 4,
+        "gated": 5,
+        "total": 10,
+        "self_serve_pct": 40.0,
+        "gated_pct": 50.0
+      },
+      "Productivity & PM": {
+        "self_serve": 8,
+        "gated": 2,
+        "total": 10,
+        "self_serve_pct": 80.0,
+        "gated_pct": 20.0
+      },
+      "Customer Support": {
+        "self_serve": 7,
+        "gated": 3,
+        "total": 10,
+        "self_serve_pct": 70.0,
+        "gated_pct": 30.0
+      },
+      "Dev Tools & Infra": {
+        "self_serve": 10,
+        "gated": 0,
+        "total": 10,
+        "self_serve_pct": 100.0,
+        "gated_pct": 0.0
+      }
+    }
+  },
+  "buildability_verdicts": {
+    "overall": {
+      "ready_with_friction": 73,
+      "ready": 26,
+      "blocked": 1
+    },
+    "by_category": {
+      "Data & Scraping": {
+        "ready_with_friction": 7,
+        "ready": 3
+      },
+      "Messaging & Comms": {
+        "ready": 4,
+        "ready_with_friction": 6
+      },
+      "CRM": {
+        "ready": 4,
+        "ready_with_friction": 6
+      },
+      "Marketing & Ads": {
+        "ready_with_friction": 8,
+        "ready": 2
+      },
+      "E-Commerce": {
+        "ready_with_friction": 8,
+        "ready": 2
+      },
+      "AI & Research Tools": {
+        "ready_with_friction": 9,
+        "ready": 1
+      },
+      "Fintech & Payments": {
+        "ready_with_friction": 8,
+        "blocked": 1,
+        "ready": 1
+      },
+      "Productivity & PM": {
+        "ready_with_friction": 8,
+        "ready": 2
+      },
+      "Customer Support": {
+        "ready_with_friction": 9,
+        "ready": 1
+      },
+      "Dev Tools & Infra": {
+        "ready": 6,
+        "ready_with_friction": 4
+      }
+    }
+  },
+  "blockers_ranked": [
+    {
+      "blocker": "Paid plan required for API access",
+      "count": 52
+    },
+    {
+      "blocker": "Enterprise/partner approval required",
+      "count": 16
+    },
+    {
+      "blocker": "Other / complex auth requirements",
+      "count": 3
+    },
+    {
+      "blocker": "Very limited API scope",
+      "count": 2
+    },
+    {
+      "blocker": "No public API available",
+      "count": 1
+    }
+  ],
+  "api_surface_distribution": {
+    "rest": 84,
+    "rest_and_graphql": 9,
+    "graphql": 4,
+    "sdk_only": 2,
+    "none_public": 1
+  },
+  "mcp_distribution": {
+    "official": 88,
+    "none": 11,
+    "unknown": 1
+  },
+  "composio_coverage": {
+    "found_in_composio": 31,
+    "total_apps": 100,
+    "coverage_pct": 31.0,
+    "not_in_composio": 69
+  },
+  "category_outliers": {
+    "most_self_serve": {
+      "category": "Messaging & Comms",
+      "self_serve_pct": 100.0,
+      "gated_pct": 0.0,
+      "ready_pct": 40.0,
+      "total": 10
+    },
+    "most_gated": {
+      "category": "E-Commerce",
+      "self_serve_pct": 50.0,
+      "gated_pct": 50.0,
+      "ready_pct": 20.0,
+      "total": 10
+    },
+    "most_buildability_ready": {
+      "category": "Dev Tools & Infra",
+      "self_serve_pct": 100.0,
+      "gated_pct": 0.0,
+      "ready_pct": 60.0,
+      "total": 10
+    }
+  },
+  "category_stats": {
+    "Data & Scraping": {
+      "self_serve_pct": 80.0,
+      "gated_pct": 20.0,
+      "ready_pct": 30.0,
+      "total": 10
+    },
+    "Messaging & Comms": {
+      "self_serve_pct": 100.0,
+      "gated_pct": 0.0,
+      "ready_pct": 40.0,
+      "total": 10
+    },
+    "CRM": {
+      "self_serve_pct": 80.0,
+      "gated_pct": 20.0,
+      "ready_pct": 40.0,
+      "total": 10
+    },
+    "Marketing & Ads": {
+      "self_serve_pct": 80.0,
+      "gated_pct": 20.0,
+      "ready_pct": 20.0,
+      "total": 10
+    },
+    "E-Commerce": {
+      "self_serve_pct": 50.0,
+      "gated_pct": 50.0,
+      "ready_pct": 20.0,
+      "total": 10
+    },
+    "AI & Research Tools": {
+      "self_serve_pct": 50.0,
+      "gated_pct": 50.0,
+      "ready_pct": 10.0,
+      "total": 10
+    },
+    "Fintech & Payments": {
+      "self_serve_pct": 40.0,
+      "gated_pct": 50.0,
+      "ready_pct": 10.0,
+      "total": 10
+    },
+    "Productivity & PM": {
+      "self_serve_pct": 80.0,
+      "gated_pct": 20.0,
+      "ready_pct": 20.0,
+      "total": 10
+    },
+    "Customer Support": {
+      "self_serve_pct": 70.0,
+      "gated_pct": 30.0,
+      "ready_pct": 10.0,
+      "total": 10
+    },
+    "Dev Tools & Infra": {
+      "self_serve_pct": 100.0,
+      "gated_pct": 0.0,
+      "ready_pct": 60.0,
+      "total": 10
+    }
+  },
+  "headline_insights": [
+    "99 of 100 apps (99%) have a usable API \u2014 but only 26 are immediately 'ready' with no friction, meaning 73 require overcoming paid-plan or auth barriers.",
+    "The self-serve vs. gated split is striking: 73% of apps offer self-serve API access (free or trial), while 26% are gated behind approvals, paid plans, or enterprise partnerships.",
+    "OAuth 2.0 (69 apps) and API Key (82 apps) dominate auth \u2014 together covering 151% of the catalog, making standard Composio-style connector patterns directly applicable to most.",
+    "Messaging & Comms is the most self-serve-friendly category (100.0% self-serve), while E-Commerce is the most gated (50.0% gated) \u2014 a key segmentation signal for toolkit prioritization.",
+    "MCP (Model Context Protocol) adoption is early but real: 88 apps have official MCP servers and 0 have community-built ones \u2014 these are already agent-ready without any additional connector work.",
+    "Composio already covers 31 of 100 apps (31.0% of this catalog), leaving 69 apps as potential expansion opportunities for new toolkit builders."
+  ]
+}

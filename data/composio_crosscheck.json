@@ -1,0 +1,1393 @@
+{
+  "meta": {
+    "total_apps": 100,
+    "found_in_composio": 31,
+    "not_in_composio_catalog": 69,
+    "lookup_failed": 0,
+    "composio_coverage_pct": 31.0
+  },
+  "results": [
+    {
+      "app": "Waterfall.io",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Twilio",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Copper",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "GoHighLevel",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Ecwid",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "higgsfield",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "DealCloud",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Paygent Connect",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth",
+        "token"
+      ]
+    },
+    {
+      "app": "Mailchimp",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Mailchimp",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 276,
+      "composio_url": "https://app.composio.dev/apps/mailchimp",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Zoho Cliq",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Clay",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Airtable",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Airtable",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 30,
+      "composio_url": "https://app.composio.dev/apps/airtable",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "iPayX",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": []
+    },
+    {
+      "app": "Gumroad",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Linear",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Linear",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 58,
+      "composio_url": "https://app.composio.dev/apps/linear",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Zendesk",
+      "category": "Customer Support",
+      "exists_in_composio": true,
+      "composio_name": "Zendesk",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 454,
+      "composio_url": "https://app.composio.dev/apps/zendesk",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Klaviyo",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Klaviyo",
+      "composio_auth_type": "api_key,oauth2",
+      "composio_tool_count": 225,
+      "composio_url": "https://app.composio.dev/apps/klaviyo",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Mermaid CLI",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": []
+    },
+    {
+      "app": "GitHub",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "GitHub",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 917,
+      "composio_url": "https://app.composio.dev/apps/github",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "QuickBooks",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Amazon Selling Partner",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "YouTube Transcript",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Jira",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Jira",
+      "composio_auth_type": "oauth2,s2s_oauth2,api_key",
+      "composio_tool_count": 100,
+      "composio_url": "https://app.composio.dev/apps/jira",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "api_key"
+      ]
+    },
+    {
+      "app": "systeme.io",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Vercel",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Intercom",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Xero",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Pumble",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Asana",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Asana",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 159,
+      "composio_url": "https://app.composio.dev/apps/asana",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "service_account"
+      ]
+    },
+    {
+      "app": "Lark (Larksuite)",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Grain",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "fanbasis",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Netlify",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Brex",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Freshdesk",
+      "category": "Customer Support",
+      "exists_in_composio": true,
+      "composio_name": "Freshdesk",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 178,
+      "composio_url": "https://app.composio.dev/apps/freshdesk",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Pinterest",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Zoho CRM",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Zoho",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 57,
+      "composio_url": "https://app.composio.dev/apps/zoho",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Monday.com",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Monday",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 121,
+      "composio_url": "https://app.composio.dev/apps/monday",
+      "auth_agreement": "disagree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Discord",
+      "category": "Messaging & Comms",
+      "exists_in_composio": true,
+      "composio_name": "Discord",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 28,
+      "composio_url": "https://app.composio.dev/apps/discord",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "DataForSEO",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Front",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Threads (Meta)",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Cloudflare",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Ramp",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Telegram",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Twenty",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "ClickUp",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "ClickUp",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 183,
+      "composio_url": "https://app.composio.dev/apps/clickup",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "SE Ranking",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Pylon",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Close",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "SendGrid",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "SendGrid",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 359,
+      "composio_url": "https://app.composio.dev/apps/sendgrid",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Supabase",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Supabase",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 124,
+      "composio_url": "https://app.composio.dev/apps/supabase",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Coda",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Coda",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 113,
+      "composio_url": "https://app.composio.dev/apps/coda",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "LiveAgent",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "WhatsApp Business",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt"
+      ]
+    },
+    {
+      "app": "PitchBook",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Ahrefs",
+      "category": "Data & Scraping",
+      "exists_in_composio": true,
+      "composio_name": "Ahrefs",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 40,
+      "composio_url": "https://app.composio.dev/apps/ahrefs",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Shopify",
+      "category": "E-Commerce",
+      "exists_in_composio": true,
+      "composio_name": "Shopify",
+      "composio_auth_type": "api_key,oauth2,s2s_oauth2",
+      "composio_tool_count": 315,
+      "composio_url": "https://app.composio.dev/apps/shopify",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "session_tokens"
+      ]
+    },
+    {
+      "app": "Neo4j",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "bearer_token",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "MrScraper",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Aircall",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Smartsheet",
+      "category": "Productivity & PM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "WooCommerce",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Plain",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "NotebookLM",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "service_account"
+      ]
+    },
+    {
+      "app": "Snowflake",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Snowflake",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 16,
+      "composio_url": "https://app.composio.dev/apps/snowflake",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "jwt",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Apify",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Vonage",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Otter AI",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Harvest",
+      "category": "Productivity & PM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Help Scout",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "BigCommerce",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Salesforce",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Salesforce",
+      "composio_auth_type": "oauth2,s2s_oauth2",
+      "composio_tool_count": 191,
+      "composio_url": "https://app.composio.dev/apps/salesforce",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "service_account"
+      ]
+    },
+    {
+      "app": "MongoDB Atlas",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Fathom",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Firecrawl",
+      "category": "Data & Scraping",
+      "exists_in_composio": true,
+      "composio_name": "Firecrawl",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 29,
+      "composio_url": "https://app.composio.dev/apps/firecrawl",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Google Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Google Docs",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 51,
+      "composio_url": "https://app.composio.dev/apps/googledocs",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Stripe",
+      "category": "Fintech & Payments",
+      "exists_in_composio": true,
+      "composio_name": "Stripe",
+      "composio_auth_type": "api_key,oauth2",
+      "composio_tool_count": 432,
+      "composio_url": "https://app.composio.dev/apps/stripe",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Gorgias",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Salesforce Commerce Cloud",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Consensus",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Datadog",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "application_key"
+      ]
+    },
+    {
+      "app": "Pipedrive",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Pipedrive",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 402,
+      "composio_url": "https://app.composio.dev/apps/pipedrive",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Bright Data",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Meta Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Meta Ads",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 50,
+      "composio_url": "https://app.composio.dev/apps/metaads",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Plaid",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Magento (Adobe Commerce)",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth1",
+        "oauth2",
+        "token"
+      ]
+    },
+    {
+      "app": "Sentry",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Sentry",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 209,
+      "composio_url": "https://app.composio.dev/apps/sentry",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Gladly",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Reducto",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "HubSpot",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "HubSpot",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 246,
+      "composio_url": "https://app.composio.dev/apps/hubspot",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "LinkedIn Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "LinkedIn",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 22,
+      "composio_url": "https://app.composio.dev/apps/linkedin",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Podio",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Sherlock",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Attio",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Attio",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 99,
+      "composio_url": "https://app.composio.dev/apps/attio",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Devin",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Slack",
+      "category": "Messaging & Comms",
+      "exists_in_composio": true,
+      "composio_name": "Slack",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 167,
+      "composio_url": "https://app.composio.dev/apps/slack",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Binance",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Squarespace",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Notion",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Notion",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 53,
+      "composio_url": "https://app.composio.dev/apps/notion",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    }
+  ]
+}

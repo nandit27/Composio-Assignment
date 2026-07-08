@@ -1,0 +1,174 @@
+{
+  "v1_path": "data/pass1_results.json",
+  "v2_path": "data/pass1_results_v2.json",
+  "total_apps": 100,
+  "unchanged_count": 67,
+  "changed_count": 33,
+  "changes": [
+    {
+      "app": "Aircall",
+      "v1": "self_serve_trial",
+      "v2": "gated_paid_plan"
+    },
+    {
+      "app": "Airtable",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Asana",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Binance",
+      "v1": "gated_paid_plan",
+      "v2": "unknown"
+    },
+    {
+      "app": "Bright Data",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Clay",
+      "v1": "self_serve_trial",
+      "v2": "gated_paid_plan"
+    },
+    {
+      "app": "ClickUp",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Copper",
+      "v1": "self_serve_free",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "DataForSEO",
+      "v1": "self_serve_trial",
+      "v2": "gated_paid_plan"
+    },
+    {
+      "app": "GoHighLevel",
+      "v1": "self_serve_trial",
+      "v2": "gated_paid_plan"
+    },
+    {
+      "app": "Google Ads",
+      "v1": "gated_paid_plan",
+      "v2": "gated_approval"
+    },
+    {
+      "app": "Jira",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Lark (Larksuite)",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Linear",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Mailchimp",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Monday.com",
+      "v1": "self_serve_free",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "MongoDB Atlas",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Neo4j",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "NotebookLM",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "Notion",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Pipedrive",
+      "v1": "self_serve_free",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "Podio",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "QuickBooks",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Reducto",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "SE Ranking",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "Salesforce",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Sherlock",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Smartsheet",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_trial"
+    },
+    {
+      "app": "Vonage",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Xero",
+      "v1": "gated_paid_plan",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "YouTube Transcript",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "Zoho Cliq",
+      "v1": "self_serve_trial",
+      "v2": "self_serve_free"
+    },
+    {
+      "app": "iPayX",
+      "v1": "unknown",
+      "v2": "gated_approval"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+Re-evaluating self_serve_status for 100 apps...
+
+=== DIFF: self_serve_status changed ===
+Aircall                       : self_serve_trial -> gated_paid_plan
+Airtable                      : gated_paid_plan -> self_serve_free
+Asana                         : self_serve_trial -> self_serve_free
+Binance                       : gated_paid_plan -> unknown
+Bright Data                   : self_serve_trial -> self_serve_free
+Clay                          : self_serve_trial -> gated_paid_plan
+ClickUp                       : self_serve_trial -> self_serve_free
+Copper                        : self_serve_free -> self_serve_trial
+DataForSEO                    : self_serve_trial -> gated_paid_plan
+GoHighLevel                   : self_serve_trial -> gated_paid_plan
+Google Ads                    : gated_paid_plan -> gated_approval
+Jira                          : self_serve_trial -> self_serve_free
+Lark (Larksuite)              : self_serve_trial -> self_serve_free
+Linear                        : self_serve_trial -> self_serve_free
+Mailchimp                     : self_serve_trial -> self_serve_free
+Monday.com                    : self_serve_free -> self_serve_trial
+MongoDB Atlas                 : self_serve_trial -> self_serve_free
+Neo4j                         : self_serve_trial -> self_serve_free
+NotebookLM                    : gated_paid_plan -> self_serve_trial
+Notion                        : self_serve_trial -> self_serve_free
+Pipedrive                     : self_serve_free -> self_serve_trial
+Podio                         : self_serve_trial -> self_serve_free
+QuickBooks                    : self_serve_trial -> self_serve_free
+Reducto                       : self_serve_trial -> self_serve_free
+SE Ranking                    : gated_paid_plan -> self_serve_trial
+Salesforce                    : gated_paid_plan -> self_serve_free
+Sherlock                      : self_serve_trial -> self_serve_free
+Smartsheet                    : gated_paid_plan -> self_serve_trial
+Vonage                        : self_serve_trial -> self_serve_free
+Xero                          : gated_paid_plan -> self_serve_free
+YouTube Transcript            : self_serve_trial -> self_serve_free
+Zoho Cliq                     : self_serve_trial -> self_serve_free
+iPayX                         : unknown -> gated_approval
+
+Total changed: 33/100

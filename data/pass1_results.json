@@ -1,0 +1,2465 @@
+{
+  "meta": {
+    "total_apps": 100,
+    "successful": 100,
+    "errors": 0,
+    "total_run_time_seconds": 403.3,
+    "error_log": []
+  },
+  "results": [
+    {
+      "id": null,
+      "app": "Waterfall.io",
+      "category": "Data & Scraping",
+      "one_liner": "Waterfall.io provides an API to find and enrich B2B contact and company data from aggregated data vendors with high data quality and coverage.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API key required for all requests; usage-based pricing with no monthly commitments but onboarding offers direct access to engineering, indicating some support but self-serve trial availability.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires paid usage with onboarding support; not fully open self-serve free but accessible with trial and usage-based pricing.",
+      "evidence_urls": [
+        "https://docs.waterfall.io/v1/introduction",
+        "https://docs.waterfall.io/v1/authentication",
+        "https://www.waterfall.io"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Twilio",
+      "category": "Messaging & Comms",
+      "one_liner": "Twilio provides a comprehensive cloud communications platform with APIs for messaging, voice, video, email, and customer engagement across multiple channels.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Free trial available with no credit card required; pay-as-you-go pricing model.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://www.twilio.com/docs",
+        "https://www.twilio.com/en-us/changelog/oauth-apis-ga",
+        "https://www.twilio.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Copper",
+      "category": "CRM",
+      "one_liner": "Copper is a CRM platform that integrates closely with Google Workspace to streamline contact, lead, and pipeline management.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API keys can be generated directly in the Copper web app by any user; OAuth2 is supported for partner integrations.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developer.copper.com/introduction/authentication.html",
+        "https://developer.copper.com/introduction/oauth/flow.html",
+        "https://copper.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "GoHighLevel",
+      "category": "Marketing & Ads",
+      "one_liner": "GoHighLevel is a comprehensive marketing, sales, and automation CRM platform with a full REST API enabling integration, automation, and custom app development.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Developer API access requires at least the Unlimited plan; OAuth 2.0 and API key authentication are supported; API key generation will be deprecated for new accounts soon.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid subscription (Unlimited plan or above), and some rate limits apply; OAuth app creation and Marketplace app approval required for public apps.",
+      "evidence_urls": [
+        "https://marketplace.gohighlevel.com/docs",
+        "https://marketplace.gohighlevel.com/docs/oauth/ExternalAuthentication",
+        "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0",
+        "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+        "https://help.gohighlevel.com/support/solutions/articles/155000000136-how-to-get-started-with-the-developer-s-marketplace"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Ecwid",
+      "category": "E-Commerce",
+      "one_liner": "Ecwid provides a REST API platform enabling programmatic access to e-commerce store data, orders, payments, shipping, and storefront customization.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires having a store on a paid plan; custom apps are used for API tokens; some free plan upgrades available for development purpose but generally paid plan required.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access only available on paid plans, requiring a paid store for normal use",
+      "evidence_urls": [
+        "https://docs.ecwid.com/api-reference",
+        "https://docs.ecwid.com/get-started/make-your-first-api-request",
+        "https://docs.ecwid.com/get-started/set-up-your-dev-environment-in-ecwid",
+        "https://docs.ecwid.com/get-started/api-glossary",
+        "https://support.ecwid.com/hc/en-us/articles/4938302203932-Adding-more-features-to-your-store-via-Ecwid-s-API"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "higgsfield",
+      "category": "AI & Research Tools",
+      "one_liner": "Higgsfield provides AI-powered cinematic image and video generation with a Python SDK and cloud API for creative and marketing workflows.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys are obtained from Higgsfield Cloud, with example usage requiring environment variables; team plans require demo request suggesting a trial or paid gating.",
+      "api_surface": "sdk_only",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires signing up on cloud.higgsfield.ai and likely subscription to paid or trial plan; no public REST API documented, only an official Python SDK.",
+      "evidence_urls": [
+        "https://github.com/higgsfield-ai/higgsfield-client",
+        "https://higgsfield.ai/cli",
+        "https://higgsfield.ai/team-plan",
+        "https://cloud.higgsfield.ai"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "DealCloud",
+      "category": "CRM",
+      "one_liner": "DealCloud is a CRM and deal management platform offering comprehensive REST APIs for integration and automation.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires user permissions set by admins; enabling API key requires admin roles; implies paid account and internal permission management.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires admin-set permissions and likely paid subscription; token expiration and refresh required.",
+      "evidence_urls": [
+        "https://api.docs.dealcloud.com/docs/apikeys",
+        "https://api.docs.dealcloud.com/docs/token",
+        "https://api.docs.dealcloud.com/docs",
+        "https://api.docs.dealcloud.com/sdk/python"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Paygent Connect",
+      "category": "Fintech & Payments",
+      "one_liner": "Paygent Connect is an AI agent monetization and billing platform that offers usage- and outcome-based pricing models to track and bill AI-driven work fairly.",
+      "auth_methods": [
+        "api_key",
+        "basic_auth",
+        "token"
+      ],
+      "self_serve_status": "gated_approval",
+      "gating_evidence_note": "Developer Portal API access requires filling out an application and approval; no immediate self-serve signup.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "unknown",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires application and approval; token expiration every 15 minutes adds minor friction.",
+      "evidence_urls": [
+        "https://docs.payaconnect.com/developers",
+        "https://docs.payaconnect.com/developers/api/endpoints/authentication",
+        "https://withpaygent.com/documentation/what-is-paygent"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Mailchimp",
+      "category": "Marketing & Ads",
+      "one_liner": "Mailchimp is an integrated marketing platform offering marketing campaign management, transactional emails, and audience management via a robust API.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access is available but full features require paid plans; OAuth and API key authentication require app registration; 14-day free trial available for standard plan.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Full API access and advanced features require paid subscription; OAuth 2 setup needed for user data access on behalf of others.",
+      "evidence_urls": [
+        "https://mailchimp.com/developer",
+        "https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2",
+        "https://mailchimp.com/developer/marketing/api",
+        "https://mailchimp.com/pricing/"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Zoho Cliq",
+      "category": "Messaging & Comms",
+      "one_liner": "Zoho Cliq is a messaging and collaboration platform with a REST API and developer platform for building bots, commands, and internal tools.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires registering an app in Zoho API console to get OAuth credentials; Zoho Cliq has a free plan with limited features and paid plans with more features including API usage.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API usage requires OAuth app registration and possibly paid plan for advanced features.",
+      "evidence_urls": [
+        "https://www.zoho.com/cliq/help/restapi/v3/introduction",
+        "https://www.zoho.com/cliq/help/restapi/v3/oauth",
+        "https://www.zoho.com/cliq/help/platform/getting-started-with-cliq-platform.html",
+        "https://www.zoho.com/cliq/help/developers.html",
+        "https://www.zoho.com/cliq/pricing.html"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Clay",
+      "category": "Data & Scraping",
+      "one_liner": "Clay is a data enrichment and sales intelligence platform that integrates multiple APIs and data sources to build automated workflows and enrich data tables.",
+      "auth_methods": [
+        "api_key",
+        "jwt"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Clay offers free and paid plans; HTTP API access is included from Growth plan ($495/mo) and above, with JWT and API key auth available; free tier exists but API access is gated by plan level.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires a paid plan starting at Growth tier ($495/mo), limiting self-serve free access.",
+      "evidence_urls": [
+        "https://university.clay.com/docs/http-api-integration-overview",
+        "https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview",
+        "https://www.clay.com/pricing",
+        "https://www.clay.com/partners"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Airtable",
+      "category": "Productivity & PM",
+      "one_liner": "Airtable is a low-code platform enabling collaborative apps with a robust web API to interact with bases and tables.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires OAuth 2.0 or deprecated API key; OAuth app creation required in developer portal. Pricing indicates paid plans are needed for advanced features and usage.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid plan or onboarding OAuth app setup; legacy API keys are deprecated",
+      "evidence_urls": [
+        "https://docs.nexla.com/user-guides/connectors/airtable_api/airtable_api_auth",
+        "https://www.airtable.com/developers/web/api/authentication",
+        "https://airtable.com/pricing",
+        "https://www.airtable.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "iPayX",
+      "category": "Fintech & Payments",
+      "one_liner": "iPayX provides a neutral FX verification layer to audit foreign-exchange transactions, reveal spreads, and quantify FX costs for fintech teams and brokers.",
+      "auth_methods": [],
+      "self_serve_status": "unknown",
+      "gating_evidence_note": "No public API documentation, authentication details, or pricing info found on official iPayX site or search results; likely no self-serve API access.",
+      "api_surface": "none_public",
+      "api_breadth": "unknown",
+      "has_mcp": "none",
+      "buildability_verdict": "blocked",
+      "main_blocker": "No public API or developer documentation available, no sign of self-serve developer API access.",
+      "evidence_urls": [
+        "https://ipayx.ai/docs",
+        "https://ipayx.ai/pricing",
+        "https://ipayx.ai/api-authentication"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Gumroad",
+      "category": "E-Commerce",
+      "one_liner": "Gumroad is a platform for creators to sell digital products, memberships, and courses with API access for managing products, sales, subscribers, and licenses.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API access token and OAuth2 authentication available with self-serve application creation for access tokens in developer docs; no explicit paid gating on API found.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API requires API access token or OAuth2 and documentation is somewhat limited, with some endpoints focusing on core sales, products, subscribers, and license management; no official marketplace or extensive endpoint coverage.",
+      "evidence_urls": [
+        "https://nocodeapi.com/docs/gumroad-api",
+        "https://docs.n8n.io/integrations/builtin/credentials/gumroad",
+        "https://gumroad.com/api"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Linear",
+      "category": "Productivity & PM",
+      "one_liner": "Linear is a fast, developer-focused issue tracking and project management tool with a GraphQL API for building integrations.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys and OAuth 2.0 authentication available; API access included starting at Basic paid plan from pricing details.",
+      "api_surface": "graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires at least the Basic paid plan, not available on free tier.",
+      "evidence_urls": [
+        "https://linear.app/developers",
+        "https://linear.app/docs/api-and-webhooks",
+        "https://linear.app/developers/oauth-2-0-authentication",
+        "https://checkthat.ai/brands/linear/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Zendesk",
+      "category": "Customer Support",
+      "one_liner": "Zendesk provides a comprehensive customer support platform with APIs for ticketing, messaging, CRM, and more to build integrations and automations.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Developers can sign up for a 14-day free trial account for development and API testing; OAuth and API token based authentication documented and available.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API rate limits and pricing depend on plan tier; higher limits require paid plans with add-ons for scalable AI agent workloads.",
+      "evidence_urls": [
+        "https://developer.zendesk.com/api-reference",
+        "https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application",
+        "https://developer.zendesk.com/documentation/api-basics/authentication/creating-and-using-oauth-tokens-with-the-api",
+        "https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests",
+        "https://corepiper.com/blog/zendesk-api-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Klaviyo",
+      "category": "Marketing & Ads",
+      "one_liner": "Klaviyo is a powerful email and SMS marketing platform with robust APIs for integrations and data management.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can sign up and generate private API keys immediately; OAuth apps can be created by Owners, Admins, or Managers with no mention of paywalls for API key access.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developers.klaviyo.com/en/reference/api_overview",
+        "https://developers.klaviyo.com/en/docs/authenticate_",
+        "https://developers.klaviyo.com/en/docs/set_up_oauth",
+        "https://developers.klaviyo.com/en/docs/create_a_public_oauth_app",
+        "https://developers.klaviyo.com/en/docs/get_started"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Mermaid CLI",
+      "category": "AI & Research Tools",
+      "one_liner": "Mermaid CLI is a command-line tool that converts Mermaid diagram definition files into image files such as SVG, PNG, JPG, and PDF.",
+      "auth_methods": [],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Mermaid CLI is an open-source CLI tool with local install and usage freely available, no authentication or paid plan required for access.",
+      "api_surface": "sdk_only",
+      "api_breadth": "narrow",
+      "has_mcp": "none",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://github.com/mermaid-js/mermaid-cli",
+        "https://mermaid2img.com/blog/another-way-to-convert-mermaid-to-img-for-developer"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "GitHub",
+      "category": "Dev Tools & Infra",
+      "one_liner": "GitHub is a web-based platform for version control and collaboration that provides a comprehensive REST API to automate workflows, manage repositories, and integrate with other applications.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can create personal access tokens or OAuth apps and instantly use the REST API; free tier available with rate limits.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.github.com/en/rest",
+        "https://docs.github.com/en/rest/about-the-rest-api/about-the-rest-api",
+        "https://docs.github.com/en/rest/overview/authenticating-to-the-rest-api",
+        "https://github.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "QuickBooks",
+      "category": "Fintech & Payments",
+      "one_liner": "Create accounting tools that help small businesses thrive by integrating with the QuickBooks Online REST and GraphQL APIs.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Developers can register and start using APIs with OAuth 2.0, but new tiered pricing and partner program requires subscription for high usage and premium APIs.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Pricing now includes usage-based charges for data retrieval API calls and premium APIs require paid tiers and approval.",
+      "evidence_urls": [
+        "https://developer.intuit.com/app/developer/qbo/docs/develop",
+        "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization",
+        "https://www.apideck.com/blog/quickbooks-api-pricing-and-the-intuit-app-partner-program"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Amazon Selling Partner",
+      "category": "E-Commerce",
+      "one_liner": "Amazon Selling Partner API (SP-API) is a REST-based API enabling sellers and vendors to programmatically access and automate management of orders, shipments, payments, and more.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires a Professional selling account ($39.99/month) and developer profile approval; registration and authorization process is mandatory.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires Professional seller account and app registration with approval; no free tier for API usage.",
+      "evidence_urls": [
+        "https://developer-docs.amazon.com/sp-api",
+        "https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api",
+        "https://developer-docs.amazon.com/sp-api/docs/website-authorization-workflow",
+        "https://sell.amazon.com/developers",
+        "https://developer-docs.amazon.com/sp-api/docs/configuration-details"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "YouTube Transcript",
+      "category": "AI & Research Tools",
+      "one_liner": "A dedicated API service that extracts and returns YouTube video transcripts in structured JSON or plain text without scraping complexities.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API requires Google API Console credentials for the official YouTube Data API (OAuth2 or API key). TranscriptAPI offers a credit-based subscription model with free credits and paid plans.",
+      "api_surface": "rest",
+      "api_breadth": "narrow",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires paid subscription for high usage and OAuth2/API key setup with quota limits on official YouTube Data API",
+      "evidence_urls": [
+        "https://transcriptapi.com/blog/youtube-transcript-api-complete-developer-guide",
+        "https://developers.google.com/youtube/registering_an_application",
+        "https://youtubetranscribes.com/blog/youtube-transcript-api-pricing-comparison"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Jira",
+      "category": "Productivity & PM",
+      "one_liner": "Jira is a project management tool designed for issue tracking and agile project workflows.",
+      "auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access is available with free and paid Jira plans; there is a 7-day free trial for Standard and Premium plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Authentication methods include OAuth and API tokens but require configuration and possible paid plan for full features",
+      "evidence_urls": [
+        "https://developer.atlassian.com/cloud/jira/software/rest",
+        "https://developer.atlassian.com/server/jira/platform/jira-rest-api-example-oauth-authentication-6291692",
+        "https://www.atlassian.com/software/jira/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "systeme.io",
+      "category": "Marketing & Ads",
+      "one_liner": "systeme.io is an all-in-one marketing platform offering funnels, email marketing, courses, and affiliate management with a public REST API for programmatic access.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API keys are generated in account settings immediately; free plan includes API access with no credit card required.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Some API endpoints and features may only be fully available on paid plans; free plan is limited to 2,000 contacts and fewer funnels/courses.",
+      "evidence_urls": [
+        "https://help.systeme.io/article/2329-how-to-use-systeme-io-public-api",
+        "https://help.systeme.io/article/2323-how-to-create-a-public-api-key-on-systeme-io",
+        "https://systeme.io/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Vercel",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Vercel is a platform to deploy, scale, and manage modern web applications with a REST API for programmatic interaction.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Vercel API access is available via personal account tokens created immediately through user dashboard; Hobby plan offers free tier with usage caps but no paid subscription needed for API key creation.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://vercel.com/docs/rest-api",
+        "https://vercel.com/docs/ai-gateway/authentication-and-byok/api-keys",
+        "https://vercel.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Intercom",
+      "category": "Customer Support",
+      "one_liner": "Intercom is a customer support platform that provides messaging, AI agents, and automation tools to engage and support customers.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires creating an app and generating Access Tokens or OAuth tokens via the Developer Hub; free development workspace available in the US region; paid plans required for full product features.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires paid Intercom workspace for full functionality and API usage; development workspace has limitations and is region-restricted.",
+      "evidence_urls": [
+        "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+        "https://developers.intercom.com/docs",
+        "https://www.intercom.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Xero",
+      "category": "Fintech & Payments",
+      "one_liner": "Xero provides cloud-based accounting software with APIs for managing accounting, payroll, and financial data.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires sign-up and app certification; pricing tiers combine free starter tier with paid plans starting at $35 AUD; some premium API endpoints require security assessment and use case approval.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API usage costs and tiered access with some endpoints gated behind security assessments and paid plans.",
+      "evidence_urls": [
+        "https://developer.xero.com/documentation/api/accounting/overview",
+        "https://developer.xero.com/documentation/guides/oauth2/overview",
+        "https://developer.xero.com/pricing",
+        "https://developer.xero.com/faq/pricing-and-policy-updates"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Pumble",
+      "category": "Messaging & Comms",
+      "one_liner": "Pumble is a team communication platform offering real-time chat, messaging, and integrations.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires installing an API addon in the workspace and generating API keys; there is a 7-day free trial with no credit card required.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API requires an addon installation and generation of API keys within the Pumble workspace; limited to a trial period or paid plan.",
+      "evidence_urls": [
+        "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration",
+        "https://pumble.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Asana",
+      "category": "Productivity & PM",
+      "one_liner": "Asana is a work management platform offering a REST API to programmatically create, read, update, and delete project management data.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "service_account"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys (Personal Access Tokens) and OAuth apps can be created immediately; Service Accounts are Enterprise tier feature requiring admin creation.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Enterprise-only Service Accounts required for full org-wide data access; some features (e.g., rules) not accessible via API.",
+      "evidence_urls": [
+        "https://developers.asana.com/docs/authentication",
+        "https://developers.asana.com/docs/oauth",
+        "https://developers.asana.com/docs/personal-access-token",
+        "https://asana.com/terms/api-terms",
+        "https://forum.asana.com/t/premium-vs-business-account-and-api-access/170667",
+        "https://developers.asana.com/reference/rest-api-reference"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Lark (Larksuite)",
+      "category": "Messaging & Comms",
+      "one_liner": "Lark is a unified communication and collaboration platform providing messaging, video conferencing, calendar, docs, and open APIs for integrations.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires registration and app creation in developer console; some advanced APIs require purchasing quota packages.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Some APIs require paid quota packages; onboarding process requires developer registration and app creation.",
+      "evidence_urls": [
+        "https://open.larksuite.com/document?lang=en-US",
+        "https://open.larksuite.com/document/common-capabilities/sso/api/obtain-oauth-code",
+        "https://open.larksuite.com/document/server-docs/pricing",
+        "https://www.larksuite.com/en_us/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Grain",
+      "category": "AI & Research Tools",
+      "one_liner": "Grain provides a platform to capture, transcribe, and manage meeting recordings and notes with AI-powered insights and developer API access.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires Starter plan or higher; Workspace API tokens require Business or Enterprise plans; tokens generated via UI restricted by user role.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access gated by paid plans and role permissions, no sandbox environment.",
+      "evidence_urls": [
+        "https://developers.grain.com",
+        "https://support.grain.com/en/articles/15507288-grain-api",
+        "https://grain.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "fanbasis",
+      "category": "E-Commerce",
+      "one_liner": "FanBasis is an all-in-one platform for running high-ticket digital businesses with payment processing, subscription management, and automation.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API key access is provided immediately via dashboard; docs describe easy self-serve API key use with no signup barriers noted.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://apidocs.fan",
+        "https://www.fanbasis.com/developer"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Netlify",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Netlify is a programmable hosting platform offering a REST API for managing atomic deploys, sites, DNS, forms, and more with OAuth 2 authentication.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can generate personal access tokens and use OAuth 2 for API access; a free tier is available with all necessary API features.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://open-api.netlify.com",
+        "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api",
+        "https://docs.netlify.com/manage/security/secure-access-to-sites/oauth-provider-tokens",
+        "https://www.netlify.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Brex",
+      "category": "Fintech & Payments",
+      "one_liner": "Brex is a unified spend platform offering global corporate cards, expense management, reimbursements, travel, bill pay, and a broad REST API for integration and automation.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API tokens are generated via the Brex dashboard by an admin after accepting a developer API agreement; OAuth for partner clients requires obtaining client ID/secret from Brex developer support.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires admin provisioning of tokens and accepting developer agreements; OAuth access for partners requires contacting developer support for credentials.",
+      "evidence_urls": [
+        "https://developer.brex.com/guides/authentication",
+        "https://developer.brex.com/guides/partner_authentication",
+        "https://developer.brex.com/docs/mcp",
+        "https://developer.brex.com"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Freshdesk",
+      "category": "Customer Support",
+      "one_liner": "Freshdesk is a cloud-based customer support platform providing a wide range of RESTful APIs for helpdesk operations.",
+      "auth_methods": [
+        "basic_auth",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can sign up and get an API key immediately at no cost; authentication uses API key or basic auth.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API rate limits vary by plan and increased limits require paid subscription or contact with support.",
+      "evidence_urls": [
+        "https://developers.freshdesk.com/api",
+        "https://developer.freshdesk.com/api/v1",
+        "https://freshdesk.com/pricing",
+        "https://developers.freshdesk.com/docs/app-sdk/v3.0/"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Pinterest",
+      "category": "Marketing & Ads",
+      "one_liner": "Pinterest provides a REST API platform that enables developers to build apps for content and ad management on Pinterest.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires OAuth 2.0 authentication. There are Trial and Standard access tiers. Trial is free with limited rate and token expiry, Standard access requires video demo approval but is free. There is also a limited Marketing Developer Partner program.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Standard access requires a manual video demo review to unlock production-level access and higher rate limits.",
+      "evidence_urls": [
+        "https://developers.pinterest.com/docs/api/v5",
+        "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization",
+        "https://developers.pinterest.com/docs/key-concepts/access-tiers",
+        "https://www.blotato.com/blog/pinterest-api-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Zoho CRM",
+      "category": "CRM",
+      "one_liner": "Zoho CRM is a cloud-based customer relationship management platform with broad RESTful APIs enabling automation, integration, and customization.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Free trial available; API access requires authentication and may be limited by user license type.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires OAuth 2.0 authentication and appropriate user license; some advanced features gated to paid plans or licenses.",
+      "evidence_urls": [
+        "https://www.zoho.com/crm/developer/docs/api/v8",
+        "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+        "https://www.zoho.com/crm/zohocrm-pricing.html"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Monday.com",
+      "category": "Productivity & PM",
+      "one_liner": "Monday.com provides a GraphQL API platform to automate workflows, manage projects, and integrate with enterprise data.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API access is granted via personal V2 API tokens available to all users immediately in their account Developer Center or Admin panel.",
+      "api_surface": "graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developer.monday.com/api-reference",
+        "https://developer.monday.com/api-reference/docs/authentication",
+        "https://developer.monday.com/apps/docs/plans-and-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Discord",
+      "category": "Messaging & Comms",
+      "one_liner": "Discord is a platform for building bots and integrations that operate within Discord servers, enabling messaging, voice chat, social gaming, and more.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Developers can create apps and obtain bot tokens or OAuth2 credentials immediately via the Discord Developer Portal with no evidence of paywalls or gated approval for basic API access.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.discord.com/developers/intro",
+        "https://docs.discord.com/developers/topics/oauth2",
+        "https://docs.discord.com/developers/quick-start/getting-started",
+        "https://docs.discord.com/developers/reference"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "DataForSEO",
+      "category": "Data & Scraping",
+      "one_liner": "DataForSEO provides REST APIs offering SEO data such as SERP results, keyword data, and backlink data for building SEO tools and analysis.",
+      "auth_methods": [
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Free unlimited trial available; account creation grants immediate API login and password for Basic Auth; pricing requires a minimum $50 deposit with pay-as-you-go.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires minimum $50 deposit and pay-as-you-go pricing, which may introduce cost friction for some users.",
+      "evidence_urls": [
+        "https://docs.dataforseo.com/v3",
+        "https://docs.dataforseo.com/v3/auth",
+        "https://dataforseo.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Front",
+      "category": "Customer Support",
+      "one_liner": "Front is a customer communication platform that provides APIs and tools to build integrations, automate message handling, and manage customer interactions.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Developers can create a free developer account with immediate access to API tokens or OAuth credentials to start building with the Front APIs.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://dev.frontapp.com/docs/welcome",
+        "https://dev.frontapp.com/docs/authentication",
+        "https://dev.frontapp.com/docs/core-api-overview"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Threads (Meta)",
+      "category": "Marketing & Ads",
+      "one_liner": "Threads (Meta) API enables developers and brands to manage Threads presence, publish content, and access insights via an authenticated API.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires creating a Meta app with Threads use case and passing Meta App Review for production access; testers can use the API before review.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires Meta App Review approval and published app status for non-tester user API access; also subject to rate limits and usage caps.",
+      "evidence_urls": [
+        "https://developers.facebook.com/documentation/threads",
+        "https://developers.facebook.com/documentation/threads/get-started",
+        "https://www.blotato.com/blog/threads-api-pricing",
+        "https://blog.nevinpjohn.in/posts/threads-api-public-authentication"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Cloudflare",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Cloudflare provides a comprehensive REST API for managing accounts, zones, DNS, organizations and more to control its various cloud and edge services.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API keys and OAuth tokens can be created immediately via the dashboard and API with no explicit payment gating.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developers.cloudflare.com/api",
+        "https://developers.cloudflare.com/fundamentals/api/get-started/create-token",
+        "https://developers.cloudflare.com/agents/model-context-protocol/authorization",
+        "https://www.cloudflare.com/plans"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Ramp",
+      "category": "Fintech & Payments",
+      "one_liner": "Ramp offers a spend management platform with APIs that allow programmatic control over transactions, cards, approvals, and vendor payouts.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API key creation requires admin access and is gated behind an application and approval process; sandbox access requires contacting an account manager.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Access to sandbox and production API environments require approval and admin account; not fully self-serve free.",
+      "evidence_urls": [
+        "https://support.ramp.com/accessing-the-developer-api",
+        "https://ramp.com/technology-partnerships",
+        "https://ramp.com/developer-tools"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Telegram",
+      "category": "Messaging & Comms",
+      "one_liner": "Telegram is a messaging platform offering Bot, Custom Client, and Gateway APIs enabling developers to build bots, custom clients, and messaging integrations.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "APIs are free to use with immediate token access for bots; developers must register apps but no payment or approval gate is required.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://core.telegram.org/api",
+        "https://core.telegram.org/bots/api",
+        "https://core.telegram.org/api/terms",
+        "https://core.telegram.org/bots/api#authorizing-your-bot"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Twenty",
+      "category": "CRM",
+      "one_liner": "Twenty is an open-source CRM with extensible REST and GraphQL APIs, custom app framework, AI agents, and onboarding support.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Self-host or use managed cloud with 30-day free trial; API requires subscription plans from $9/user/month; must create API key from workspace settings.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid plan after free trial; workspace-specific schema means API is dynamically generated per tenant requiring setup.",
+      "evidence_urls": [
+        "https://docs.twenty.com/developers/introduction",
+        "https://docs.twenty.com/developers/extend/api",
+        "https://docs.twenty.com/developers/extend/webhooks",
+        "https://twenty.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "ClickUp",
+      "category": "Productivity & PM",
+      "one_liner": "ClickUp is a comprehensive productivity platform offering task, document, chat, and AI integrations for streamlined work management.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires a ClickUp account; OAuth apps are created by workspace admins; trial access for AI features with tiered paid plans for advanced AI and API rate limits.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API rate limits depend on your plan and advanced AI/API features require paid subscription plans",
+      "evidence_urls": [
+        "https://developer.clickup.com",
+        "https://developer.clickup.com/docs/Getting%20Started",
+        "https://help.clickup.com/hc/en-us/articles/6303422883095-Create-your-own-app-with-the-ClickUp-API",
+        "https://clickup.com/pricing",
+        "https://developer.clickup.com/reference"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "SE Ranking",
+      "category": "Data & Scraping",
+      "one_liner": "SE Ranking provides a comprehensive SEO and marketing data API for accessing keyword research, backlinks, domain analysis, and project management data.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires a paid subscription plan with monthly credit limits; keys are generated in user dashboard after sign-up and paid plan purchase.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires a paid subscription with credit limits; additional credits may require expensive add-ons or standalone plans.",
+      "evidence_urls": [
+        "https://seranking.com/api/data/getting-started",
+        "https://seranking.com/api/how-to-get-api",
+        "https://seranking.com/api/pricing.html"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Pylon",
+      "category": "Customer Support",
+      "one_liner": "Pylon is a customer support platform with AI-native workflows and autonomous AI agents for scalable ticket routing, resolution, and customer health monitoring.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API tokens can only be created by Admin users; pricing shows no free tier and requires paid subscription with minimum seats.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires admin token creation and plan purchase with minimum seats; no free self-serve API key.",
+      "evidence_urls": [
+        "https://docs.usepylon.com/pylon-docs/developer/api",
+        "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+        "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+        "https://usepylon.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Close",
+      "category": "CRM",
+      "one_liner": "Close is a CRM platform that offers a REST API for automating sales processes, managing leads, and integrating with other systems.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys and OAuth 2.0 available for authentication; access requires a Close account which may involve a trial or paid plan.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access likely requires a paid Close plan after trial; rate limits and some API specs are experimental.",
+      "evidence_urls": [
+        "https://developer.close.com/api/overview",
+        "https://developer.close.com",
+        "https://developer.close.com/api/overview/api-clients"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "SendGrid",
+      "category": "Marketing & Ads",
+      "one_liner": "SendGrid is a cloud-based email delivery service that provides APIs for sending transactional and marketing emails.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Free trial available with no credit card required for 60 days; paid plans start thereafter.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid subscription after free trial period ends.",
+      "evidence_urls": [
+        "https://www.twilio.com/docs/sendgrid/api-reference",
+        "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+        "https://www.twilio.com/en-us/products/email-api/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Supabase",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Supabase is an open source backend-as-a-service platform providing Postgres database, authentication, storage, and realtime APIs.",
+      "auth_methods": [
+        "api_key",
+        "oauth2",
+        "jwt"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can sign up for free and obtain API keys immediately; developer docs and API keys are publicly accessible.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://supabase.com/docs/guides/auth/oauth-server",
+        "https://supabase.com/docs/guides/getting-started/api-keys",
+        "https://supabase.com/pricing",
+        "https://supabase.com/docs/guides/auth",
+        "https://supabase.com/docs"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Coda",
+      "category": "Productivity & PM",
+      "one_liner": "Coda is a collaborative doc platform that combines documents, spreadsheets, and apps in one workspace and provides a RESTful API for programmatic interaction with docs.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Coda API is publicly available to all users free of charge in both free and paid workspaces. API token required tied to user role.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://coda.io/developers",
+        "https://coda.io/pricing",
+        "https://coda.io/packs/build/latest/guides/basics/authentication"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "LiveAgent",
+      "category": "Customer Support",
+      "one_liner": "LiveAgent is a help desk software and live chat platform enabling customer support across multiple channels with API integration for automation and workflows.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "LiveAgent offers a 30-day free trial with API keys generated within the user account; paid plans are required for continued access.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access is tied to paid subscription plans after trial period, limiting fully free self-serve usage.",
+      "evidence_urls": [
+        "https://support.liveagent.com/911737-API-v3",
+        "https://support.liveagent.com/741982-API-key",
+        "https://www.liveagent.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "WhatsApp Business",
+      "category": "Messaging & Comms",
+      "one_liner": "WhatsApp Business Platform offers enterprise-grade APIs for messaging and calling to help businesses communicate with customers at scale.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Developers can register and create Meta apps to get started immediately with temporary access tokens, but full API usage requires a WhatsApp Business account and may incur message-based charges.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires WhatsApp Business account setup and message-based pricing applies which may limit free usage.",
+      "evidence_urls": [
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing",
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/overview"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "PitchBook",
+      "category": "Fintech & Payments",
+      "one_liner": "PitchBook provides a REST API offering real-time access to comprehensive private and public market financial data for companies, deals, investors, and funds.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires purchase of API credits and obtaining keys through a PitchBook account manager; no free or open sign-up available.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Access to API requires purchasing credits and account manager provisioning, not openly self-serve.",
+      "evidence_urls": [
+        "https://dlthub.com/context/source/pitchbook-api",
+        "https://documenter.getpostman.com/view/5190535/TzCV1iRc"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Ahrefs",
+      "category": "Data & Scraping",
+      "one_liner": "Ahrefs provides SEO and marketing data via a REST API to enable custom integrations and automations for keyword research, backlink analysis, rank tracking, and site auditing.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access is available only on eligible paid plans starting from the Lite plan ($129/month) with limited API calls; Enterprise plan ($1499/month) is required for full API v3 access.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "High pricing and plan tier gating limit accessibility for smaller developers or free access.",
+      "evidence_urls": [
+        "https://docs.ahrefs.com/en/api/docs/introduction",
+        "https://docs.ahrefs.com/en/api/docs/api-keys-creation-and-management",
+        "https://docs.ahrefs.com/en/ahrefs-connect/docs/oauth-guide",
+        "https://docs.ahrefs.com/en/mcp/docs/introduction",
+        "https://seobotai.com/blog/ahrefs-api-alternatives"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Shopify",
+      "category": "E-Commerce",
+      "one_liner": "Shopify is a platform that provides APIs and developer tools to build and customize ecommerce stores across multiple surfaces including admin, storefront, and POS.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "session_tokens"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Anyone can sign up and use developer tools and API keys, but pricing plans with different features and third-party payment fees apply.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access and usage is gated behind Shopify subscription plans with different pricing tiers and limits.",
+      "evidence_urls": [
+        "https://shopify.dev/docs/api",
+        "https://shopify.dev/docs/api/usage/authentication",
+        "https://shopify.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Neo4j",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Neo4j is a high-performance native graph database with support for Cypher query language and ACID transactions, accessible via REST, HTTP, and Bolt protocols.",
+      "auth_methods": [
+        "basic_auth",
+        "bearer_token",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "14-day free trial available for cloud AuraDB; community edition and developer licenses available for free self-hosting; API requires account and some paid tiers for advanced features.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires account setup and paid tiers for advanced managed services, though free community edition allows basic usage.",
+      "evidence_urls": [
+        "https://neo4j.com/docs/query-api/current/authentication-authorization",
+        "https://neo4j.com/docs/aura/api/authentication",
+        "https://neo4j.com/pricing",
+        "https://neo4j.com/docs/rest-docs/current"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "MrScraper",
+      "category": "Data & Scraping",
+      "one_liner": "MrScraper is an AI-powered web scraping platform that allows users to run custom scrapers via an API for automated data extraction.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Free plan offers 100 API tokens per month with no credit card required and immediate API token generation.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "none",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.mrscraper.com/docs/features/activating-api",
+        "https://docs.mrscraper.com/docs/api/authentication",
+        "https://docs.mrscraper.com/docs/getting-started/billing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Aircall",
+      "category": "Messaging & Comms",
+      "one_liner": "Aircall provides a cloud-based business phone system with powerful APIs and webhooks for integration and automation.",
+      "auth_methods": [
+        "basic_auth",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access requires a paid license plan starting at $30 per license per month, with a 7-day free trial available.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires a paid subscription with a minimum of 3 licenses. OAuth app creation requires contacting Aircall for credentials.",
+      "evidence_urls": [
+        "https://developer.aircall.io",
+        "https://developer.aircall.io/tutorials/basic-authentication",
+        "https://developer.aircall.io/tutorials/how-aircall-oauth-flow-works",
+        "https://developer.aircall.io/api-references",
+        "https://aircall.io/call-center-software-features/webhooks-api",
+        "https://www.cloudtalk.io/blog/aircall-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Smartsheet",
+      "category": "Productivity & PM",
+      "one_liner": "Smartsheet is a collaborative work management platform that enables you to manage sheets, rows, columns, folders, and projects programmatically via its API.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires Business, Enterprise, or Advanced Work Management plan; API tokens generated in UI with access limited by plan; OAuth requires app registration and developer profile.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires paid plan for API access and developer account registration is needed for OAuth app registration.",
+      "evidence_urls": [
+        "https://developers.smartsheet.com",
+        "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication",
+        "https://developers.smartsheet.com/api/smartsheet/introduction",
+        "https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth",
+        "https://help.smartsheet.com/articles/2482389-generate-API-key",
+        "https://help.smartsheet.com/articles/2480876-api-documentation"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "WooCommerce",
+      "category": "E-Commerce",
+      "one_liner": "WooCommerce is an e-commerce platform that integrates with WordPress and provides a REST API to connect stores to external systems and services.",
+      "auth_methods": [
+        "api_key",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can generate API keys in WooCommerce via the admin panel immediately with no cost.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://woocommerce.com/document/woocommerce-rest-api",
+        "https://developer.woocommerce.com/docs/apis/rest-api/authentication",
+        "https://developer.woocommerce.com/docs/apis/rest-api"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Plain",
+      "category": "Customer Support",
+      "one_liner": "Plain provides a customer support platform with powerful APIs, AI workflows, and integrations to manage customer interactions efficiently.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Users can create machine users and API keys with permissions in the dashboard; pricing shows a 7-day free trial, then plans start at $35/month with API access included.",
+      "api_surface": "graphql",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API usage requires paid plans starting at $35/month after trial.",
+      "evidence_urls": [
+        "https://www.plain.com/docs/graphql/introduction",
+        "https://www.plain.com/docs/graphql/authentication",
+        "https://www.plain.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "NotebookLM",
+      "category": "AI & Research Tools",
+      "one_liner": "NotebookLM Enterprise is a tool for generating insights and summaries from documents, with APIs for notebook creation, management, and sharing.",
+      "auth_methods": [
+        "oauth2",
+        "service_account"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires Google Cloud project and authentication via Google Cloud credentials; no public free trial or open access noted.",
+      "api_surface": "rest",
+      "api_breadth": "narrow",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API is restricted to enterprise customers with Google Cloud projects; requires setup and paid plan",
+      "evidence_urls": [
+        "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+        "https://cloud.google.com/gemini/enterprise/docs/authentication",
+        "https://cloud.google.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Snowflake",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Snowflake is a cloud data platform providing SQL APIs for data access, management, and integration with strong authentication options.",
+      "auth_methods": [
+        "oauth2",
+        "jwt",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access is available with REST API (SQL API), OAuth and key pair authentication; pricing indicates usage/layered cost.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid plan after initial trial period; complex auth (key pair or OAuth) may add friction.",
+      "evidence_urls": [
+        "https://docs.snowflake.com/en/developer-guide/sql-api/index",
+        "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication",
+        "https://docs.snowflake.com/en/user-guide/oauth-snowflake-overview",
+        "https://www.snowflake.com/en/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Apify",
+      "category": "Data & Scraping",
+      "one_liner": "Apify is a cloud platform providing web scraping, automation and data extraction tools via REST API and Actors.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Free plan available without credit card, API token found immediately on account creation.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.apify.com/api",
+        "https://docs.apify.com/platform/integrations/api",
+        "https://apify.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Vonage",
+      "category": "Messaging & Comms",
+      "one_liner": "Vonage provides a broad set of communication APIs including SMS, voice, video, 2FA, and more for embedding real-time messaging and communication into apps.",
+      "auth_methods": [
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access available via account with API key and secret; requires signup but offers free trial usage; authentication uses API key/secret, JWT, or basic auth depending on API.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires account signup and usage is generally pay-per-use; some advanced features require JWT authentication and paid plan usage.",
+      "evidence_urls": [
+        "https://developer.vonage.com/en/documentation",
+        "https://developer.vonage.com/en/getting-started/concepts/authentication",
+        "https://developer.vonage.com/en/api/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Otter AI",
+      "category": "AI & Research Tools",
+      "one_liner": "Otter AI provides AI-powered transcription and meeting notes with a public API and Model Context Protocol (MCP) integration for AI assistants.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "Public API access is available only for Enterprise customers after contacting an account manager; API keys are created within the user account but require at least Business or Enterprise subscription.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires an Enterprise plan and contacting Otter account manager to enable API; not fully open to all users.",
+      "evidence_urls": [
+        "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API",
+        "https://help.otter.ai/hc/en-us/articles/4412365535895-Does-Otter-offer-an-open-API",
+        "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+        "https://otter.ai/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Harvest",
+      "category": "Productivity & PM",
+      "one_liner": "Harvest is a time tracking and project management tool with a comprehensive API for managing accounts and data.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access included for all accounts including free and trial, Personal Access Token can be generated instantly from developer section.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "none",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access tied to subscription with limitations based on user roles; free/trial accounts have access but broader usage likely needs paid plan.",
+      "evidence_urls": [
+        "https://help.getharvest.com/api-v2",
+        "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication",
+        "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Help Scout",
+      "category": "Customer Support",
+      "one_liner": "Help Scout is a customer support platform combining shared inbox management, knowledge base, live chat, and APIs for integration and automation.",
+      "auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires a paid Plus or Pro plan; Free plan has no API access.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access is tied to paid plans only, so requires subscription purchase before use.",
+      "evidence_urls": [
+        "https://docs.helpscout.com/article/1140-mailbox-api",
+        "https://developer.helpscout.com/mailbox-api/overview/authentication",
+        "https://developer.helpscout.com",
+        "https://developer.helpscout.com/docs-api",
+        "https://www.gorgias.com/blog/help-scout-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "BigCommerce",
+      "category": "E-Commerce",
+      "one_liner": "BigCommerce is a commerce platform offering comprehensive REST and GraphQL APIs to build, customize, and scale online stores.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access is available via OAuth 2.0 credentials generated through store or app accounts; requires sign up and store setup, free trial available.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires store account creation and configuration, and uses OAuth 2.0 with scoped credentials which adds complexity.",
+      "evidence_urls": [
+        "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts",
+        "https://support.bigcommerce.com/s/article/Store-API-Accounts",
+        "https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/pricing",
+        "https://docs.bigcommerce.com"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Salesforce",
+      "category": "CRM",
+      "one_liner": "Salesforce is a comprehensive CRM platform offering extensive APIs for integration, customization, and enterprise data management.",
+      "auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "service_account"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires a Salesforce subscription plan; some APIs are free with limits, but broader access depends on paid tiers.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid plan subscription, limiting fully open self-serve use.",
+      "evidence_urls": [
+        "https://developer.salesforce.com/docs/apis",
+        "https://help.salesforce.com/s/articleView?language=en_US&id=xcloud.connected_app_create_api_integration.htm&type=5",
+        "https://www.flosum.com/blog/exploring-salesforce-api-pricing-for-enterprise-clients"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "MongoDB Atlas",
+      "category": "Dev Tools & Infra",
+      "one_liner": "MongoDB Atlas is a fully-managed cloud database platform providing programmatic access for managing database clusters, projects, and users.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access uses OAuth 2.0 Client Credentials flow with service accounts, requiring client ID and secret; API keys legacy but supported; IP allow listing possible; usage typically on trial or paid plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires OAuth2 service account setup with client credentials flow, generally available under trial/paid plans, with some constraints like IP allow listing.",
+      "evidence_urls": [
+        "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2",
+        "https://www.mongodb.com/docs/atlas/security-oidc",
+        "https://www.mongodb.com/docs/atlas/api"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Fathom",
+      "category": "AI & Research Tools",
+      "one_liner": "Fathom provides a public API to access meeting insights including summaries, transcripts, and action items to build custom workflows and integrations.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API keys are generated immediately via user settings; public API available to all users; paid plans raise API rate limits but free tier exists.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Some API rate limits restrict heavy usage and higher throughput requires paid plans.",
+      "evidence_urls": [
+        "https://developers.fathom.ai/api-overview",
+        "https://developers.fathom.ai/sdks/authentication",
+        "https://developers.fathom.ai/sdks/oauth",
+        "https://help.fathom.video/en/articles/8368641",
+        "https://usefathom.com/changelog/jun2026-api-plans"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Firecrawl",
+      "category": "Data & Scraping",
+      "one_liner": "Firecrawl is an API service for web scraping, crawling, and data extraction that provides structured web data in formats like markdown and JSON.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Free tier with 1,000 pages/month no credit card required; API keys issued immediately upon signup.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.firecrawl.dev/api-reference/v2-introduction",
+        "https://docs.firecrawl.dev/api-reference/endpoint/scrape",
+        "https://www.firecrawl.dev/pricing",
+        "https://docs.firecrawl.dev/partner-integration"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Google Ads",
+      "category": "Marketing & Ads",
+      "one_liner": "Google Ads API allows developers to programmatically manage Google Ads campaigns, retrieve data, and automate ad operations.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "Requires a Google Ads API developer token which has different access levels and requires approval; API calls require OAuth 2.0 and a developer token.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Developer token application and approval is required which may delay access; API usage is associated with paid Google Ads accounts.",
+      "evidence_urls": [
+        "https://developers.google.com/google-ads/api",
+        "https://developers.google.com/google-ads/api/docs/oauth/overview",
+        "https://developers.google.com/google-ads/api/docs/api-policy/rate-sheet"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Stripe",
+      "category": "Fintech & Payments",
+      "one_liner": "Stripe is an online payment processing platform that provides unified REST APIs for payments, billing, subscriptions, and financial workflows.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can sign up and get API keys immediately via the Stripe Dashboard; test mode keys available for sandbox testing.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.stripe.com/api",
+        "https://docs.stripe.com/stripe-apps/api-authentication",
+        "https://stripe.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Gorgias",
+      "category": "Customer Support",
+      "one_liner": "Gorgias is a helpdesk platform designed for e-commerce stores to provide multichannel customer support with API integrations.",
+      "auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API is accessible via REST with HTTP Basic Auth using API key and email, but full developer sandbox requires registration and approval email to get developer account; pricing plans involve paid subscriptions and trial options.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Developer sandbox account requires manual approval via email and app draft; paid plans required for access beyond trial.",
+      "evidence_urls": [
+        "https://developers.gorgias.com/docs/oauth2-authentication-for-creating-apps-with-gorgias",
+        "https://docs.gorgias.com/en-US/rest-api-208286",
+        "https://docs.gorgias.com/en-US/articles/developer-resources-18370",
+        "https://www.gorgias.com/pricing",
+        "https://developers.gorgias.com/docs/1-register-on-developer-portal"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Salesforce Commerce Cloud",
+      "category": "E-Commerce",
+      "one_liner": "Salesforce Commerce Cloud is a comprehensive e-commerce platform offering extensive APIs to build and customize headless commerce experiences.",
+      "auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "jwt"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API keys and OAuth tokens require client registration via Account Manager with permission scopes; API access linked to paid Salesforce plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires registration and is tied to paid Salesforce Commerce Cloud subscriptions, limiting free self-serve usage.",
+      "evidence_urls": [
+        "https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html",
+        "https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/oauth.html",
+        "https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Consensus",
+      "category": "AI & Research Tools",
+      "one_liner": "Consensus is an AI-powered research tool that allows users to search and retrieve relevant peer-reviewed academic research papers using an API or integrations.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "The Consensus API is available by application only with baseline pricing starting at $0.10 per call plus a platform fee; API keys are issued via an account integration and regenerating breaks existing integrations.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires application and paid plan; no immediate free self-serve API key issuance.",
+      "evidence_urls": [
+        "https://support.goconsensus.com/consensus-api-documents",
+        "https://docs.consensus.app/reference",
+        "https://consensus.app/pricing",
+        "https://consensus.app/home/api",
+        "https://docs.consensus.app/docs/mcp"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Datadog",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Datadog provides cloud monitoring as a service for infrastructure, applications, logs, and more.",
+      "auth_methods": [
+        "api_key",
+        "application_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys and application keys are available but usage is tied to paid pricing plans; documentation suggests self-serve signup with usage-based billing.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires a paid Datadog subscription and billing based on usage; not free tier for API.",
+      "evidence_urls": [
+        "https://docs.datadoghq.com/api/latest",
+        "https://docs.datadoghq.com/account_management/billing/pricing",
+        "https://docs.datadoghq.com/account_management/api-authentication",
+        "https://docs.datadoghq.com/account_management/api-app-keys"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Pipedrive",
+      "category": "CRM",
+      "one_liner": "Pipedrive is a CRM platform offering a comprehensive RESTful API for integrating, automating, and extending CRM functionalities.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API token is available with every plan for free; OAuth 2.0 is supported for app marketplace.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developers.pipedrive.com/docs/api/v1",
+        "https://pipedrive.readme.io/docs/core-api-concepts-authentication",
+        "https://developers.pipedrive.com/docs/api/v1/Oauth",
+        "https://www.pipedrive.com/en/features/crm-api",
+        "https://developers.pipedrive.com/docs/api/v1/Billing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Bright Data",
+      "category": "Data & Scraping",
+      "one_liner": "Bright Data is an enterprise-grade web data platform offering proxy networks, pre-built scrapers, web scraping APIs, web automation, and data feeds to reliably collect and scale public web data.",
+      "auth_methods": [
+        "api_key",
+        "basic_auth"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Users get 5,000 free credits per month; API key created automatically on sign-up; usage billed per product and plan",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires paid plan beyond free credits; some advanced features gated by usage and pricing",
+      "evidence_urls": [
+        "https://docs.brightdata.com/introduction",
+        "https://docs.brightdata.com/api-reference/authentication",
+        "https://brightdata.com/pricing",
+        "https://docs.brightdata.com/api-reference/rest-api/scraper/crawl-api"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Meta Ads",
+      "category": "Marketing & Ads",
+      "one_liner": "Meta Ads API enables programmatic management and optimization of advertising campaigns across Meta platforms like Facebook and Instagram.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Anyone can register a Meta developer app and obtain access tokens immediately via OAuth 2.0 flows and system user tokens for server-to-server use.",
+      "api_surface": "graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developers.facebook.com/documentation/ads-commerce/marketing-api",
+        "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authentication",
+        "https://developers.facebook.com/documentation/ads-commerce/marketing-api/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Plaid",
+      "category": "Fintech & Payments",
+      "one_liner": "Plaid provides financial APIs to connect consumers' bank accounts and retrieve banking, transaction, identity, and other financial data securely.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "Plaid offers a free trial plan with 10 Items limit and sandbox environment; production usage requires signing up and possibly upgrading to paid plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Production API access requires upgrading to paid plans after trial item limits; pricing and product access are usage- and plan-dependent.",
+      "evidence_urls": [
+        "https://plaid.com/docs",
+        "https://plaid.com/core-exchange/docs/authentication/oauth-flow",
+        "https://plaid.com/pricing",
+        "https://plaid.com/docs/api/oauth",
+        "https://plaid.com/docs/account/billing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Magento (Adobe Commerce)",
+      "category": "E-Commerce",
+      "one_liner": "Magento (Adobe Commerce) is a comprehensive eCommerce platform enabling businesses to build, manage, and customize online stores with robust APIs.",
+      "auth_methods": [
+        "oauth1",
+        "oauth2",
+        "token"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires Adobe Commerce license which is paid and tiered by gross merchandise volume with pricing starting at $22,000/year; Adobe Developer Console project configuration is also required.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires paid Adobe Commerce license and Adobe Developer Console project setup for API credentials",
+      "evidence_urls": [
+        "https://developer.adobe.com/commerce/webapi/rest",
+        "https://developer.adobe.com/commerce/webapi/graphql/reference",
+        "https://developer.adobe.com/commerce/webapi/rest/authentication",
+        "https://webkul.com/blog/adobe-commerce-edition-pricing-breakdown"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Sentry",
+      "category": "Dev Tools & Infra",
+      "one_liner": "Sentry provides application monitoring and error tracking to help developers identify and fix issues in their code.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Free tier available with immediate API token creation via internal integrations or user personal tokens; OAuth2 also supported.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.sentry.io/api",
+        "https://docs.sentry.io/api/auth",
+        "https://sentry.io/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Gladly",
+      "category": "Customer Support",
+      "one_liner": "Gladly provides a customer support platform with REST APIs, SDKs, and developer tools to build seamless integrations and customer experiences.",
+      "auth_methods": [
+        "basic_auth"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access requires creating API tokens via the platform with specific API User permissions; likely part of paid plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access is gated and token creation requires appropriate user permissions; no full self-serve free tier found.",
+      "evidence_urls": [
+        "https://developer.gladly.com/rest",
+        "https://developer.gladly.com",
+        "https://www.gladly.ai/gladly-developer-platform",
+        "https://gladly.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": null,
+      "app": "Reducto",
+      "category": "AI & Research Tools",
+      "one_liner": "Reducto is an agentic document platform providing production-grade document parsing, classification, extraction, editing, and workflow orchestration APIs for AI teams.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API keys can be generated immediately in the Studio UI; there is a free usage tier with 15K credits; pricing tiers include pay-as-you-go and custom enterprise plans.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires API key with usage credits; free tier limits usage; advanced enterprise features gated by custom pricing and contracts.",
+      "evidence_urls": [
+        "https://docs.reducto.ai/quickstart",
+        "https://docs.reducto.ai/studio-account",
+        "https://reducto.ai/pricing",
+        "https://docs.reducto.ai/overview"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "HubSpot",
+      "category": "CRM",
+      "one_liner": "HubSpot is a CRM platform offering marketing, sales, customer service, and CMS features with a comprehensive developer API.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "API keys and OAuth 2.0 are available to developers immediately; free API usage within call limits; detailed developer documentation accessible publicly.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+        "https://developers.hubspot.com/docs/api/overview",
+        "https://www.hubspot.com/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "LinkedIn Ads",
+      "category": "Marketing & Ads",
+      "one_liner": "LinkedIn Ads API enables scalable ads campaign management, analytics, and audience targeting for businesses on LinkedIn.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "self_serve_status": "gated_approval",
+      "gating_evidence_note": "Access to Advertising API requires application approval and review by LinkedIn; tiered access with Development and Standard levels; uses OAuth 2.0.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "Requires application approval and compliance with LinkedIn Marketing API Terms; access is not immediate.",
+      "evidence_urls": [
+        "https://developer.linkedin.com/product-catalog/marketing/advertising-api",
+        "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authentication",
+        "https://learn.microsoft.com/en-us/linkedin/marketing/integrations/marketing-tiers?view=li-lms-2026-06"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Podio",
+      "category": "CRM",
+      "one_liner": "Podio is a flexible work management platform with a complete API for integrating, automating, and building custom solutions.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API key and OAuth2 access requires registering an app; API usage has rate limits; pricing includes free and paid plans with API call add-ons.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires registration and is limited by rate limits; higher capacity needs paid plans and add-ons.",
+      "evidence_urls": [
+        "https://developers.podio.com",
+        "https://developers.podio.com/authentication",
+        "https://developers.podio.com/doc",
+        "https://www.progress.com/podio/pricing",
+        "https://developers.podio.com/authentication/app_auth"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Sherlock",
+      "category": "Data & Scraping",
+      "one_liner": "Sherlock is an open-source username search tool that hunts down social media accounts across numerous networks using an API.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access via Apify platform requires account and API token; likely has free tier with usage limits.",
+      "api_surface": "rest",
+      "api_breadth": "moderate",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires account on Apify platform with API token and may have usage limits or paid tiers.",
+      "evidence_urls": [
+        "https://docs.sherlock.cloudferro.com/category/documentation",
+        "https://github.com/sherlock-project/api",
+        "https://apify.com/misceres/sherlock/api"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Attio",
+      "category": "CRM",
+      "one_liner": "Attio is a data-driven, highly customizable CRM platform with a full developer platform including REST API, App SDK, and MCP for automation and integrations.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Users can generate API keys themselves as admins; OAuth 2.0 is supported for multi-user app authentication; pricing shows free and paid tiers with API access on all plans.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.attio.com/docs/overview",
+        "https://docs.attio.com/rest-api/tutorials/connect-an-app-through-oauth",
+        "https://attio.com/platform/developers",
+        "https://attio.com/pricing",
+        "https://attio.com/help/apps/other-apps/generating-an-api-key"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Devin",
+      "category": "AI & Research Tools",
+      "one_liner": "Devin is an AI coding assistant that integrates with developer workflows to automate and enhance software development.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API access is only available on the $500/month Team plan and above; Core plan does not include API access.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires expensive paid plan ($500/month minimum), limiting self-serve ease.",
+      "evidence_urls": [
+        "https://docs.devin.ai/api-reference/overview",
+        "https://docs.devin.ai/api-reference/authentication",
+        "https://www.lindy.ai/blog/devin-pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Slack",
+      "category": "Messaging & Comms",
+      "one_liner": "Slack is a collaboration hub that connects people and apps to streamline communication and work.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "self_serve_free",
+      "gating_evidence_note": "Slack provides fully public API documentation and OAuth 2.0 based authentication allowing anyone to create apps and get tokens immediately; core APIs are available with no gated approval.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready",
+      "main_blocker": "none",
+      "evidence_urls": [
+        "https://docs.slack.dev/apis",
+        "https://docs.slack.dev/authentication",
+        "https://docs.slack.dev/authentication/installing-with-oauth",
+        "https://slack.com/pricing",
+        "https://api.slack.com/developer-program"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Binance",
+      "category": "Fintech & Payments",
+      "one_liner": "Binance is a cryptocurrency exchange platform offering APIs for trading, account management, and market data.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API key access is available but OAuth2 login and certain features are restricted to partners; API docs require JavaScript and some pages are gated or timeout.",
+      "api_surface": "rest_and_graphql",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "OAuth2 authentication and advanced features require partner status or business approval; some developer docs are JavaScript gated and partially inaccessible.",
+      "evidence_urls": [
+        "https://developers.binance.com/en/docs",
+        "https://developers.binance.com/legacy-docs/login/introduction",
+        "https://developers.binance.com/en/landingpage/oauth",
+        "https://www.binance.com/en/academy/articles/what-are-api-keys-and-security-types"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Squarespace",
+      "category": "E-Commerce",
+      "one_liner": "Squarespace provides commerce APIs for managing products, orders, inventory, contacts, and more for merchant sites.",
+      "auth_methods": [
+        "oauth2",
+        "api_key"
+      ],
+      "self_serve_status": "gated_paid_plan",
+      "gating_evidence_note": "API keys are generated via merchant site settings requiring a Commerce Advanced plan; OAuth client registration requires approval.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "API access requires a paid Commerce Advanced plan and OAuth client registration approval.",
+      "evidence_urls": [
+        "https://developers.squarespace.com/commerce-apis/overview",
+        "https://developers.squarespace.com/commerce-apis/oauth",
+        "https://developers.squarespace.com/commerce-apis/authentication-and-permissions"
+      ],
+      "confidence": "high",
+      "error": null
+    },
+    {
+      "id": 0,
+      "app": "Notion",
+      "category": "Productivity & PM",
+      "one_liner": "Notion is a productivity platform that combines notes, databases, kanban boards, wikis, and calendars, accessible via a powerful REST API for automation and integrations.",
+      "auth_methods": [
+        "api_key",
+        "oauth2"
+      ],
+      "self_serve_status": "self_serve_trial",
+      "gating_evidence_note": "API access is available via personal access tokens (PAT), internal connections, or public connections with OAuth 2.0. OAuth public connections require app registration and review for marketplace listings. Personal and internal tokens are immediately usable for testing and internal automation. Paid plan needed to use advanced AI agents features.",
+      "api_surface": "rest",
+      "api_breadth": "broad",
+      "has_mcp": "official",
+      "buildability_verdict": "ready_with_friction",
+      "main_blocker": "OAuth public connections require security review for marketplace listing; advanced AI features require paid Notion plan with credits usage.",
+      "evidence_urls": [
+        "https://developers.notion.com/reference/intro",
+        "https://developers.notion.com/reference/authentication",
+        "https://developers.notion.com/guides/get-started/authorization",
+        "https://www.notion.so/pricing"
+      ],
+      "confidence": "high",
+      "error": null
+    }
+  ]
+}
