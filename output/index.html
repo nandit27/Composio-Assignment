@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composio Cross-Check Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+          },
+          colors: {
+            // Zinc + emerald + amber + red. Neutral palette only.
+            ink: {
+              50:  '#fafafa',
+              100: '#f4f4f5',
+              200: '#e4e4e7',
+              300: '#d4d4d8',
+              400: '#a1a1aa',
+              500: '#71717a',
+              600: '#52525b',
+              700: '#3f3f46',
+              800: '#27272a',
+              900: '#18181b',
+              950: '#09090b',
+            },
+            ok:    '#059669', // emerald-600
+            'ok-soft':    '#d1fae5',
+            warn:  '#d97706', // amber-600
+            'warn-soft':  '#fef3c7',
+            bad:   '#dc2626', // red-600
+            'bad-soft':   '#fee2e2',
+            info:  '#2563eb', // blue-600
+            'info-soft':  '#dbeafe',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* shadcn-inspired base */
+    html, body { font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    body { background: #fafafa; color: #18181b; font-feature-settings: 'cv11', 'ss01', 'ss03'; }
+    .num { font-family: 'Geist Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+    .card {
+      background: white;
+      border: 1px solid #e4e4e7;
+      border-radius: 10px;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .card:hover { border-color: #d4d4d8; }
+    .hairline { border-color: #e4e4e7; }
+    .table-row:hover { background: #fafafa; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 2px 8px; border-radius: 999px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.01em;
+      border: 1px solid #e4e4e7; background: white; color: #3f3f46;
+    }
+    .pill-ok    { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+    .pill-warn  { background: #fffbeb; color: #b45309; border-color: #fcd34d; }
+    .pill-bad   { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+    .pill-mute  { background: #f4f4f5; color: #52525b; border-color: #e4e4e7; }
+    .pill-info  { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+
+    /* Subtle grid for the page background */
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(228,228,231,0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(228,228,231,0.5) 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-position: -1px -1px;
+    }
+
+    /* Sortable table header */
+    th.sortable { cursor: pointer; user-select: none; }
+    th.sortable:hover { color: #18181b; }
+    th.sortable .arrow { opacity: 0; transition: opacity 120ms; }
+    th.sortable.active .arrow { opacity: 1; }
+
+    /* Input */
+    .input {
+      height: 36px; padding: 0 12px; border-radius: 8px;
+      background: white; border: 1px solid #e4e4e7; color: #18181b;
+      font-size: 13px; outline: none; transition: border-color 120ms, box-shadow 120ms;
+    }
+    .input:focus { border-color: #18181b; box-shadow: 0 0 0 3px rgba(24,24,27,0.06); }
+    .input::placeholder { color: #a1a1aa; }
+
+    /* Tab */
+    .tab {
+      height: 30px; padding: 0 12px; border-radius: 6px;
+      font-size: 12.5px; font-weight: 500; color: #52525b;
+      display: inline-flex; align-items: center; gap: 6px;
+      cursor: pointer; transition: background 120ms, color 120ms;
+    }
+    .tab:hover { color: #18181b; background: #f4f4f5; }
+    .tab.active { background: #18181b; color: #fafafa; }
+
+    /* Subtle micro bar */
+    .bar-track { height: 6px; border-radius: 999px; background: #f4f4f5; overflow: hidden; }
+    .bar-fill  { height: 100%; border-radius: 999px; }
+
+    /* Mono uppercase label (used very sparingly, not on every section) */
+    .label {
+      font-family: 'Geist Mono', monospace; font-size: 10.5px;
+      letter-spacing: 0.16em; text-transform: uppercase; color: #71717a;
+    }
+
+    /* Detail row inside disagreements card */
+    .kv { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f4f4f5; }
+    .kv:last-child { border-bottom: 0; }
+    .kv .k { color: #71717a; font-size: 12px; }
+    .kv .v { color: #18181b; font-size: 13px; }
+
+    /* Section header rule */
+    .section-rule { height: 1px; background: #e4e4e7; width: 100%; }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- ============== TOP NAV ============== -->
+  <header class="border-b hairline bg-white sticky top-0 z-30">
+    <div class="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <!-- Mark: a small black square + 1px corner notch -->
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="19" height="19" rx="3" stroke="#18181b"/>
+            <path d="M4 13L8 8L11 11L16 5" stroke="#18181b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="5" r="1.6" fill="#059669"/>
+          </svg>
+          <span class="text-[14px] font-semibold tracking-tight">Composio Cross-Check</span>
+          <span class="pill pill-mute num" style="font-size:10px">v1.0</span>
+        </div>
+        <span class="text-ink-300">/</span>
+        <span class="text-[13px] text-ink-500">Verification Dashboard</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-2 text-[12px] text-ink-500">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span class="num" id="header-date">2026-07-09</span>
+        </div>
+        <button class="tab" onclick="window.print()">Print</button>
+        <button class="tab active" id="tab-all">All apps</button>
+        <button class="tab" id="tab-disagree">Disagreements</button>
+        <button class="tab" id="tab-gaps">Gaps</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== HERO STRIP ============== -->
+  <section class="border-b hairline bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 py-10">
+      <div class="flex items-end justify-between flex-wrap gap-6">
+        <div class="max-w-3xl">
+          <div class="label mb-3">Pass 1 &middot; Composio Coverage &amp; Auth Agreement</div>
+          <h1 class="text-[34px] leading-[1.1] tracking-[-0.02em] font-semibold text-ink-900">
+            100 apps cross-checked against the Composio catalog.
+            <span class="text-ink-500">31 are already covered, 69 are not.</span>
+          </h1>
+          <p class="mt-3 text-[14px] text-ink-600 max-w-2xl">
+            This dashboard summarizes the cross-check between the Pass 1 research output and the
+            live Composio catalog. It is the read-this-first view for a 2-minute human review.
+            Every claim on the page is grounded in <code class="num text-[12.5px] text-ink-900 bg-ink-100 px-1.5 py-0.5 rounded">data/composio_crosscheck.json</code>.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="pill pill-ok"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> 30 agree</span>
+          <span class="pill pill-bad"><span class="w-1.5 h-1.5 rounded-full bg-red-600"></span> 1 disagree</span>
+          <span class="pill pill-mute">69 n/a (not in catalog)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== STAT CARDS ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div class="card p-5">
+        <div class="label">Total apps</div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <div class="num text-[34px] font-semibold text-ink-900 leading-none">100</div>
+          <div class="text-[12px] text-ink-500">across 10 categories</div>
+        </div>
+        <div class="mt-4 grid grid-cols-10 gap-0.5">
+          <!-- 100 cells, 31 filled ok, 69 empty -->
+          <div class="contents" id="grid-100"></div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-[11px] text-ink-500">
+          <span><span class="inline-block w-2 h-2 rounded-sm bg-emerald-500 align-middle mr-1.5"></span><span class="num">31</span> in catalog</span>
+          <span><span class="inline-block w-2 h-2 rounded-sm bg-ink-200 align-middle mr-1.5"></span><span class="num">69</span> gap</span>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <div class="label">Composio coverage</div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <div class="num text-[34px] font-semibold text-ink-900 leading-none">31.0<span class="text-ink-400 text-[18px]">%</span></div>
+          <div class="text-[12px] text-ink-500">of 100 apps</div>
+        </div>
+        <div class="mt-4 bar-track">
+          <div class="bar-fill bg-emerald-500" style="width: 31%"></div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-[11px] text-ink-500">
+          <span>Productivity & PM: <span class="num text-ink-900">80%</span> (best)</span>
+          <span>AI & Research: <span class="num text-ink-900">0%</span> (lowest)</span>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <div class="label">Auth agreement</div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <div class="num text-[34px] font-semibold text-ink-900 leading-none">96.8<span class="text-ink-400 text-[18px]">%</span></div>
+          <div class="text-[12px] text-ink-500">30 of 31 match</div>
+        </div>
+        <div class="mt-4 bar-track">
+          <div class="bar-fill bg-emerald-500" style="width: 96.8%"></div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-[11px] text-ink-500">
+          <span><span class="inline-block w-2 h-2 rounded-sm bg-emerald-500 align-middle mr-1.5"></span><span class="num">30</span> agree</span>
+          <span><span class="inline-block w-2 h-2 rounded-sm bg-red-500 align-middle mr-1.5"></span><span class="num">1</span> disagree</span>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <div class="label">Disagreements</div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <div class="num text-[34px] font-semibold text-ink-900 leading-none">1</div>
+          <div class="text-[12px] text-ink-500">app flagged</div>
+        </div>
+        <div class="mt-4 p-3 rounded-md bg-red-50 border border-red-100">
+          <div class="text-[12.5px] text-red-900 font-medium">Monday.com</div>
+          <div class="mt-1 text-[11.5px] text-red-700 leading-snug">
+            Pass 1 says <span class="num">api_key</span> only. Composio supports <span class="num">oauth2</span>. Most likely Pass 1 undercounted.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CHARTS ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+      <!-- Coverage by category (horizontal bar) -->
+      <div class="card p-5 lg:col-span-2">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="label">Composio coverage by category</div>
+            <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+              Where the catalog overlaps the most, and where the gaps are
+            </h3>
+          </div>
+          <div class="flex gap-1">
+            <button class="tab active" data-cov-sort="desc">Most first</button>
+            <button class="tab" data-cov-sort="asc">Least first</button>
+          </div>
+        </div>
+        <div class="relative" style="height: 360px">
+          <canvas id="chart-coverage"></canvas>
+        </div>
+      </div>
+
+      <!-- Agreement donut -->
+      <div class="card p-5">
+        <div class="label">Auth agreement breakdown</div>
+        <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+          100 apps, 31 in catalog
+        </h3>
+        <div class="relative mt-3" style="height: 230px">
+          <canvas id="chart-agreement"></canvas>
+        </div>
+        <div class="mt-4 space-y-2">
+          <div class="flex items-center justify-between text-[12.5px]">
+            <div class="flex items-center gap-2 text-ink-700">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:#059669"></span>
+              Agree
+            </div>
+            <div class="num text-ink-900">30 / 100</div>
+          </div>
+          <div class="flex items-center justify-between text-[12.5px]">
+            <div class="flex items-center gap-2 text-ink-700">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:#dc2626"></span>
+              Disagree
+            </div>
+            <div class="num text-ink-900">1 / 100</div>
+          </div>
+          <div class="flex items-center justify-between text-[12.5px]">
+            <div class="flex items-center gap-2 text-ink-700">
+              <span class="inline-block w-2.5 h-2.5 rounded-sm" style="background:#e4e4e7"></span>
+              N/A (not in catalog)
+            </div>
+            <div class="num text-ink-900">69 / 100</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TOP COMPOSIO APPS ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-4">
+    <div class="card p-5">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <div class="label">Top Composio apps by tool count</div>
+          <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+            Where the catalog has the most depth, and what auth method it exposes
+          </h3>
+        </div>
+        <div class="text-[11.5px] text-ink-500 num">31 apps in catalog &middot; sorted by tool count</div>
+      </div>
+      <div class="relative" style="height: 320px">
+        <canvas id="chart-top"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CATEGORY MATRIX ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-4">
+    <div class="card p-5">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <div class="label">Coverage matrix &middot; 10 categories</div>
+          <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+            Each tile is one category, sorted by coverage
+          </h3>
+        </div>
+        <div class="flex items-center gap-3 text-[11.5px] text-ink-500">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-sm bg-emerald-500"></span>In Composio</span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-sm bg-ink-200"></span>Not in catalog</span>
+        </div>
+      </div>
+      <div id="category-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"></div>
+    </div>
+  </section>
+
+  <!-- ============== DISAGREEMENTS ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-4">
+    <div class="card p-5">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <div class="label">Disagreements &middot; 1</div>
+          <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+            Where Pass 1 said one thing, and the Composio catalog said another
+          </h3>
+        </div>
+        <span class="pill pill-bad">needs review</span>
+      </div>
+      <div id="disagreements-list"></div>
+    </div>
+  </section>
+
+  <!-- ============== GAPS / INTEGRATION OPPORTUNITIES ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-4">
+    <div class="card p-5">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <div class="label">Catalog gaps &middot; 69 apps</div>
+          <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+            Apps researched in Pass 1 that are not in the Composio catalog
+          </h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <select id="gap-category" class="input" style="height:30px; font-size:12.5px; padding: 0 8px"></select>
+        </div>
+      </div>
+      <div id="gaps-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div>
+    </div>
+  </section>
+
+  <!-- ============== FULL APPS TABLE ============== -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-4 pb-12">
+    <div class="card p-5">
+      <div class="flex items-start justify-between flex-wrap gap-3 mb-4">
+        <div>
+          <div class="label">All apps &middot; 100</div>
+          <h3 class="mt-1 text-[15px] font-semibold text-ink-900 tracking-tight">
+            Full cross-check, sortable and filterable
+          </h3>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <input id="search" class="input" type="text" placeholder="Search app or category" style="width: 240px" />
+          <select id="filter-status" class="input" style="height:36px; padding: 0 8px">
+            <option value="all">All statuses</option>
+            <option value="in">In Composio</option>
+            <option value="out">Not in catalog</option>
+            <option value="agree">Agree</option>
+            <option value="disagree">Disagree</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto -mx-2">
+        <table class="w-full text-[12.5px]">
+          <thead>
+            <tr class="text-left text-ink-500 border-b hairline">
+              <th class="sortable py-2.5 px-2 font-medium" data-sort="app">App <span class="arrow">&#x2191;</span></th>
+              <th class="sortable py-2.5 px-2 font-medium" data-sort="category">Category <span class="arrow">&#x2191;</span></th>
+              <th class="sortable py-2.5 px-2 font-medium" data-sort="exists">In catalog <span class="arrow">&#x2191;</span></th>
+              <th class="py-2.5 px-2 font-medium">Composio auth</th>
+              <th class="py-2.5 px-2 font-medium">Pass 1 auth</th>
+              <th class="sortable py-2.5 px-2 font-medium" data-sort="agreement">Agreement <span class="arrow">&#x2191;</span></th>
+              <th class="sortable py-2.5 px-2 font-medium text-right" data-sort="tools">Tools <span class="arrow">&#x2191;</span></th>
+            </tr>
+          </thead>
+          <tbody id="apps-tbody"></tbody>
+        </table>
+      </div>
+      <div class="mt-3 text-[11.5px] text-ink-500 flex items-center justify-between">
+        <div id="row-count">Showing 0 of 100</div>
+        <div class="num">Source: data/composio_crosscheck.json</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="border-t hairline bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 h-12 flex items-center justify-between text-[11.5px] text-ink-500">
+      <div>Generated <span class="num" id="footer-date">2026-07-09</span> from <code class="num">data/composio_crosscheck.json</code></div>
+      <div class="flex items-center gap-3">
+        <span>Pass 1 sample: <span class="num text-ink-900">100</span></span>
+        <span>&middot;</span>
+        <span>Verification sample: <span class="num text-ink-900">20</span></span>
+        <span>&middot;</span>
+        <span>Field agreement: <span class="num text-ink-900">61.7%</span> raw / <span class="num text-ink-900">64.2%</span> after fix</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============== DATA + RENDER ============== -->
+  <script>
+    // Embedded data (loaded from data/composio_crosscheck.json at build time)
+    const DATA = {
+  "meta": {
+    "total_apps": 100,
+    "found_in_composio": 31,
+    "not_in_composio_catalog": 69,
+    "lookup_failed": 0,
+    "composio_coverage_pct": 31.0
+  },
+  "results": [
+    {
+      "app": "Waterfall.io",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Twilio",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Copper",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "GoHighLevel",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Ecwid",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "higgsfield",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "DealCloud",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Paygent Connect",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth",
+        "token"
+      ]
+    },
+    {
+      "app": "Mailchimp",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Mailchimp",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 276,
+      "composio_url": "https://app.composio.dev/apps/mailchimp",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Zoho Cliq",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Clay",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Airtable",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Airtable",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 30,
+      "composio_url": "https://app.composio.dev/apps/airtable",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "iPayX",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": []
+    },
+    {
+      "app": "Gumroad",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Linear",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Linear",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 58,
+      "composio_url": "https://app.composio.dev/apps/linear",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Zendesk",
+      "category": "Customer Support",
+      "exists_in_composio": true,
+      "composio_name": "Zendesk",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 454,
+      "composio_url": "https://app.composio.dev/apps/zendesk",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Klaviyo",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Klaviyo",
+      "composio_auth_type": "api_key,oauth2",
+      "composio_tool_count": 225,
+      "composio_url": "https://app.composio.dev/apps/klaviyo",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Mermaid CLI",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": []
+    },
+    {
+      "app": "GitHub",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "GitHub",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 917,
+      "composio_url": "https://app.composio.dev/apps/github",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "QuickBooks",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Amazon Selling Partner",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "YouTube Transcript",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Jira",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Jira",
+      "composio_auth_type": "oauth2,s2s_oauth2,api_key",
+      "composio_tool_count": 100,
+      "composio_url": "https://app.composio.dev/apps/jira",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "api_key"
+      ]
+    },
+    {
+      "app": "systeme.io",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Vercel",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Intercom",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Xero",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Pumble",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Asana",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Asana",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 159,
+      "composio_url": "https://app.composio.dev/apps/asana",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "service_account"
+      ]
+    },
+    {
+      "app": "Lark (Larksuite)",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Grain",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "fanbasis",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Netlify",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Brex",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Freshdesk",
+      "category": "Customer Support",
+      "exists_in_composio": true,
+      "composio_name": "Freshdesk",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 178,
+      "composio_url": "https://app.composio.dev/apps/freshdesk",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Pinterest",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Zoho CRM",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Zoho",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 57,
+      "composio_url": "https://app.composio.dev/apps/zoho",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Monday.com",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Monday",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 121,
+      "composio_url": "https://app.composio.dev/apps/monday",
+      "auth_agreement": "disagree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Discord",
+      "category": "Messaging & Comms",
+      "exists_in_composio": true,
+      "composio_name": "Discord",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 28,
+      "composio_url": "https://app.composio.dev/apps/discord",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "DataForSEO",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Front",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Threads (Meta)",
+      "category": "Marketing & Ads",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Cloudflare",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Ramp",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Telegram",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Twenty",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "ClickUp",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "ClickUp",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 183,
+      "composio_url": "https://app.composio.dev/apps/clickup",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "SE Ranking",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Pylon",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Close",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "SendGrid",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "SendGrid",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 359,
+      "composio_url": "https://app.composio.dev/apps/sendgrid",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Supabase",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Supabase",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 124,
+      "composio_url": "https://app.composio.dev/apps/supabase",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Coda",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Coda",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 113,
+      "composio_url": "https://app.composio.dev/apps/coda",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "LiveAgent",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "WhatsApp Business",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt"
+      ]
+    },
+    {
+      "app": "PitchBook",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Ahrefs",
+      "category": "Data & Scraping",
+      "exists_in_composio": true,
+      "composio_name": "Ahrefs",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 40,
+      "composio_url": "https://app.composio.dev/apps/ahrefs",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Shopify",
+      "category": "E-Commerce",
+      "exists_in_composio": true,
+      "composio_name": "Shopify",
+      "composio_auth_type": "api_key,oauth2,s2s_oauth2",
+      "composio_tool_count": 315,
+      "composio_url": "https://app.composio.dev/apps/shopify",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "session_tokens"
+      ]
+    },
+    {
+      "app": "Neo4j",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "bearer_token",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "MrScraper",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Aircall",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Smartsheet",
+      "category": "Productivity & PM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "WooCommerce",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Plain",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "NotebookLM",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "service_account"
+      ]
+    },
+    {
+      "app": "Snowflake",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Snowflake",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 16,
+      "composio_url": "https://app.composio.dev/apps/snowflake",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "jwt",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Apify",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Vonage",
+      "category": "Messaging & Comms",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "jwt",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Otter AI",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Harvest",
+      "category": "Productivity & PM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Help Scout",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "BigCommerce",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Salesforce",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Salesforce",
+      "composio_auth_type": "oauth2,s2s_oauth2",
+      "composio_tool_count": 191,
+      "composio_url": "https://app.composio.dev/apps/salesforce",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key",
+        "jwt",
+        "service_account"
+      ]
+    },
+    {
+      "app": "MongoDB Atlas",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Fathom",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Firecrawl",
+      "category": "Data & Scraping",
+      "exists_in_composio": true,
+      "composio_name": "Firecrawl",
+      "composio_auth_type": "api_key",
+      "composio_tool_count": 29,
+      "composio_url": "https://app.composio.dev/apps/firecrawl",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Google Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Google Docs",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 51,
+      "composio_url": "https://app.composio.dev/apps/googledocs",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Stripe",
+      "category": "Fintech & Payments",
+      "exists_in_composio": true,
+      "composio_name": "Stripe",
+      "composio_auth_type": "api_key,oauth2",
+      "composio_tool_count": 432,
+      "composio_url": "https://app.composio.dev/apps/stripe",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Gorgias",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Salesforce Commerce Cloud",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "basic_auth",
+        "jwt"
+      ]
+    },
+    {
+      "app": "Consensus",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Datadog",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "application_key"
+      ]
+    },
+    {
+      "app": "Pipedrive",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Pipedrive",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 402,
+      "composio_url": "https://app.composio.dev/apps/pipedrive",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Bright Data",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Meta Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "Meta Ads",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 50,
+      "composio_url": "https://app.composio.dev/apps/metaads",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Plaid",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Magento (Adobe Commerce)",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth1",
+        "oauth2",
+        "token"
+      ]
+    },
+    {
+      "app": "Sentry",
+      "category": "Dev Tools & Infra",
+      "exists_in_composio": true,
+      "composio_name": "Sentry",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 209,
+      "composio_url": "https://app.composio.dev/apps/sentry",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Gladly",
+      "category": "Customer Support",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "basic_auth"
+      ]
+    },
+    {
+      "app": "Reducto",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "HubSpot",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "HubSpot",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 246,
+      "composio_url": "https://app.composio.dev/apps/hubspot",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "LinkedIn Ads",
+      "category": "Marketing & Ads",
+      "exists_in_composio": true,
+      "composio_name": "LinkedIn",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 22,
+      "composio_url": "https://app.composio.dev/apps/linkedin",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Podio",
+      "category": "CRM",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Sherlock",
+      "category": "Data & Scraping",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Attio",
+      "category": "CRM",
+      "exists_in_composio": true,
+      "composio_name": "Attio",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 99,
+      "composio_url": "https://app.composio.dev/apps/attio",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Devin",
+      "category": "AI & Research Tools",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key"
+      ]
+    },
+    {
+      "app": "Slack",
+      "category": "Messaging & Comms",
+      "exists_in_composio": true,
+      "composio_name": "Slack",
+      "composio_auth_type": "oauth2",
+      "composio_tool_count": 167,
+      "composio_url": "https://app.composio.dev/apps/slack",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Binance",
+      "category": "Fintech & Payments",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    },
+    {
+      "app": "Squarespace",
+      "category": "E-Commerce",
+      "exists_in_composio": "not_in_composio_catalog",
+      "composio_name": null,
+      "composio_auth_type": null,
+      "composio_tool_count": null,
+      "composio_url": null,
+      "auth_agreement": "n/a",
+      "pass1_auth_methods": [
+        "oauth2",
+        "api_key"
+      ]
+    },
+    {
+      "app": "Notion",
+      "category": "Productivity & PM",
+      "exists_in_composio": true,
+      "composio_name": "Notion",
+      "composio_auth_type": "oauth2,api_key",
+      "composio_tool_count": 53,
+      "composio_url": "https://app.composio.dev/apps/notion",
+      "auth_agreement": "agree",
+      "pass1_auth_methods": [
+        "api_key",
+        "oauth2"
+      ]
+    }
+  ]
+};
+
+    // ── Helpers ─────────────────────────────────────────────────────
+    const $  = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function normalizeAuthList(s) {
+      if (!s) return [];
+      return String(s).split(',').map(x => x.trim().toLowerCase()).filter(Boolean).sort();
+    }
+    function authsEqual(composio, pass1) {
+      const a = normalizeAuthList(composio);
+      const b = (pass1 || []).map(x => String(x).toLowerCase()).sort();
+      if (a.length !== b.length) return false;
+      return a.every((x, i) => x === b[i]);
+    }
+
+    // ── 100-cell coverage grid ──────────────────────────────────────
+    (function render100Grid() {
+      const el = $('#grid-100');
+      const inCat = DATA.results.filter(r => r.exists_in_composio === true);
+      el.innerHTML = '';
+      for (let i = 0; i < 100; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'aspect-square rounded-[1.5px]';
+        cell.style.background = i < inCat.length ? '#10b981' : '#e4e4e7';
+        cell.style.opacity = i < inCat.length ? 1 : 1;
+        cell.title = DATA.results[i]?.app || `app ${i+1}`;
+        el.appendChild(cell);
+      }
+    })();
+
+    // ── Coverage by category (horizontal bar) ──────────────────────
+    let covSort = 'desc';
+    function buildCoverageData() {
+      const map = new Map();
+      DATA.results.forEach(r => {
+        if (!map.has(r.category)) map.set(r.category, { found: 0, not: 0 });
+        const c = map.get(r.category);
+        if (r.exists_in_composio === true) c.found += 1; else c.not += 1;
+      });
+      const arr = Array.from(map.entries()).map(([cat, v]) => ({
+        cat, found: v.found, not: v.not, total: v.found + v.not,
+        pct: v.found / (v.found + v.not) * 100,
+      }));
+      arr.sort((a, b) => covSort === 'desc' ? b.pct - a.pct : a.pct - b.pct);
+      return arr;
+    }
+
+    function makeCoverageChart() {
+      const data = buildCoverageData();
+      const labels = data.map(d => d.cat);
+      const found  = data.map(d => d.found);
+      const missing = data.map(d => d.not);
+
+      const ctx = $('#chart-coverage').getContext('2d');
+      if (window.__covChart) window.__covChart.destroy();
+      window.__covChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'In Composio', data: found,  backgroundColor: '#10b981', borderRadius: 2, stack: 's' },
+            { label: 'Not in catalog', data: missing, backgroundColor: '#e4e4e7', borderRadius: 2, stack: 's' },
+          ],
+        },
+        options: {
+          indexAxis: 'y',
+          maintainAspectRatio: false,
+          responsive: true,
+          animation: { duration: 300 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#d4d4d8',
+              borderColor: '#27272a', borderWidth: 1, padding: 10, cornerRadius: 6,
+              titleFont: { family: 'Geist', size: 12, weight: '500' },
+              bodyFont:  { family: 'Geist Mono', size: 11 },
+              callbacks: {
+                label: (ctx) => {
+                  const d = data[ctx.dataIndex];
+                  return ` ${d.found}/${d.total} in catalog (${d.pct.toFixed(1)}%)`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { stacked: true, beginAtZero: true, max: 10, grid: { color: '#f4f4f5', drawBorder: false }, ticks: { font: { family: 'Geist Mono', size: 10 }, color: '#a1a1aa' } },
+            y: { stacked: true, grid: { display: false, drawBorder: false }, ticks: { font: { family: 'Geist', size: 12, weight: '500' }, color: '#27272a' } },
+          },
+        },
+      });
+
+      // Inline value labels on the right
+      const container = $('#chart-coverage').parentElement;
+      // remove old label overlays
+      container.querySelectorAll('.cov-label').forEach(n => n.remove());
+      // (we'll rely on the in-bar totals instead)
+      // Append a small inline summary row below
+      const summary = document.createElement('div');
+      summary.className = 'cov-label mt-3 flex items-center justify-between text-[11.5px] text-ink-500';
+      summary.innerHTML =
+        '<span><span class="inline-block w-2 h-2 rounded-sm bg-emerald-500 align-middle mr-1.5"></span>Each bar = 10 apps, one bar per category</span>' +
+        '<span class="num">n=100</span>';
+      container.appendChild(summary);
+    }
+
+    // Sort toggle
+    $$('[data-cov-sort]').forEach(b => b.addEventListener('click', () => {
+      $$('[data-cov-sort]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      covSort = b.dataset.covSort;
+      makeCoverageChart();
+    }));
+
+    // ── Agreement donut ─────────────────────────────────────────────
+    (function renderDonut() {
+      const ctx = $('#chart-agreement').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Agree', 'Disagree', 'N/A (not in catalog)'],
+          datasets: [{
+            data: [30, 1, 69],
+            backgroundColor: ['#059669', '#dc2626', '#e4e4e7'],
+            borderColor: '#ffffff',
+            borderWidth: 2,
+          }],
+        },
+        options: {
+          maintainAspectRatio: false,
+          cutout: '68%',
+          animation: { duration: 400 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#d4d4d8',
+              borderColor: '#27272a', borderWidth: 1, padding: 10, cornerRadius: 6,
+              titleFont: { family: 'Geist', size: 12, weight: '500' },
+              bodyFont:  { family: 'Geist Mono', size: 11 },
+            },
+          },
+        },
+        plugins: [{
+          id: 'center',
+          beforeDraw(chart) {
+            const { ctx, chartArea } = chart;
+            const cx = (chartArea.left + chartArea.right) / 2;
+            const cy = (chartArea.top + chartArea.bottom) / 2;
+            ctx.save();
+            ctx.font = '600 22px Geist';
+            ctx.fillStyle = '#18181b';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('31', cx, cy - 8);
+            ctx.font = '500 10.5px Geist Mono';
+            ctx.fillStyle = '#71717a';
+            ctx.fillText('APPS IN CATALOG', cx, cy + 12);
+            ctx.restore();
+          }
+        }],
+      });
+    })();
+
+    // ── Top Composio apps by tool count ─────────────────────────────
+    (function renderTopChart() {
+      const top = DATA.results
+        .filter(r => r.exists_in_composio === true)
+        .sort((a, b) => (b.composio_tool_count || 0) - (a.composio_tool_count || 0))
+        .slice(0, 10)
+        .reverse(); // so the largest is on top in a horizontal bar
+
+      const ctx = $('#chart-top').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: top.map(r => r.app),
+          datasets: [{
+            label: 'Tool count',
+            data: top.map(r => r.composio_tool_count || 0),
+            backgroundColor: top.map(r => r.auth_agreement === 'disagree' ? '#dc2626' : '#18181b'),
+            borderRadius: 2,
+            barThickness: 14,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          maintainAspectRatio: false,
+          animation: { duration: 300 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#18181b', titleColor: '#fafafa', bodyColor: '#d4d4d8',
+              borderColor: '#27272a', borderWidth: 1, padding: 10, cornerRadius: 6,
+              titleFont: { family: 'Geist', size: 12, weight: '500' },
+              bodyFont:  { family: 'Geist Mono', size: 11 },
+              callbacks: {
+                label: (ctx) => {
+                  const r = top[ctx.dataIndex];
+                  return ` ${r.composio_tool_count} tools · auth: ${r.composio_auth_type}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: '#f4f4f5', drawBorder: false }, ticks: { font: { family: 'Geist Mono', size: 10 }, color: '#a1a1aa' } },
+            y: { grid: { display: false, drawBorder: false }, ticks: { font: { family: 'Geist', size: 12, weight: '500' }, color: '#27272a' } },
+          },
+        },
+      });
+    })();
+
+    // ── Category matrix tiles ───────────────────────────────────────
+    (function renderCategoryGrid() {
+      const map = new Map();
+      DATA.results.forEach(r => {
+        if (!map.has(r.category)) map.set(r.category, { found: 0, not: 0, tools: 0 });
+        const c = map.get(r.category);
+        if (r.exists_in_composio === true) { c.found += 1; c.tools += r.composio_tool_count || 0; }
+        else c.not += 1;
+      });
+      const tiles = Array.from(map.entries())
+        .map(([cat, v]) => ({ cat, ...v, total: v.found + v.not, pct: v.found/(v.found+v.not)*100 }))
+        .sort((a, b) => b.pct - a.pct);
+      const el = $('#category-grid');
+      el.innerHTML = tiles.map(t => {
+        const fillCells = [];
+        for (let i = 0; i < t.total; i++) {
+          fillCells.push(`<div class="aspect-square rounded-[1.5px]" style="background:${i < t.found ? '#10b981' : '#e4e4e7'}"></div>`);
+        }
+        return `
+          <div class="border hairline rounded-lg p-3 bg-white hover:border-ink-300 transition-colors">
+            <div class="flex items-baseline justify-between">
+              <div class="text-[12.5px] font-semibold text-ink-900 truncate" title="${esc(t.cat)}">${esc(t.cat)}</div>
+              <div class="num text-[12.5px] text-ink-900">${t.pct.toFixed(0)}%</div>
+            </div>
+            <div class="mt-1 text-[10.5px] text-ink-500 num">${t.found} / ${t.total} in catalog</div>
+            <div class="mt-2 grid grid-cols-10 gap-0.5">${fillCells.join('')}</div>
+            <div class="mt-2 flex items-center justify-between text-[10.5px] text-ink-500">
+              <span>tools: <span class="num text-ink-900">${t.tools.toLocaleString()}</span></span>
+              <span class="num">${t.not} gap${t.not === 1 ? '' : 's'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    })();
+
+    // ── Disagreements ───────────────────────────────────────────────
+    (function renderDisagreements() {
+      const list = DATA.results.filter(r => r.auth_agreement === 'disagree');
+      const el = $('#disagreements-list');
+      if (list.length === 0) {
+        el.innerHTML = '<div class="text-[12.5px] text-ink-500 py-4">No disagreements. All 31 apps in the catalog match Pass 1 auth.</div>';
+        return;
+      }
+      el.innerHTML = list.map(r => `
+        <div class="rounded-lg border border-red-100 bg-red-50/40 p-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[14px] font-semibold text-ink-900">${esc(r.app)}</span>
+              <span class="pill pill-mute">${esc(r.category)}</span>
+              <span class="pill pill-bad">disagree</span>
+            </div>
+            ${r.composio_url ? `<a href="${esc(r.composio_url)}" target="_blank" rel="noreferrer" class="text-[11.5px] text-blue-700 hover:underline num">${esc(r.composio_url)}</a>` : ''}
+          </div>
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-[12px]">
+            <div>
+              <div class="text-ink-500 mb-1">Composio auth</div>
+              <div class="flex flex-wrap gap-1.5">
+                ${(r.composio_auth_type || '').split(',').map(x => `<span class="pill pill-info num">${esc(x)}</span>`).join('')}
+              </div>
+            </div>
+            <div>
+              <div class="text-ink-500 mb-1">Pass 1 auth</div>
+              <div class="flex flex-wrap gap-1.5">
+                ${(r.pass1_auth_methods || []).map(x => `<span class="pill pill-mute num">${esc(x)}</span>`).join('')}
+              </div>
+            </div>
+            <div>
+              <div class="text-ink-500 mb-1">Tool count</div>
+              <div class="num text-[14px] text-ink-900">${r.composio_tool_count ?? '-'}</div>
+            </div>
+          </div>
+          <div class="mt-3 text-[12px] text-ink-600 leading-relaxed">
+            Pass 1 reports <span class="num font-medium text-ink-900">${(r.pass1_auth_methods || []).join(', ') || '-'}</span>
+            for <span class="font-medium text-ink-900">${esc(r.app)}</span>. The Composio catalog exposes
+            <span class="num font-medium text-ink-900">${esc(r.composio_auth_type || '-')}</span>.
+            Most likely Pass 1 undercounted; verify with the official docs before updating the canonical answer.
+          </div>
+        </div>
+      `).join('');
+    })();
+
+    // ── Gaps / integration opportunities ────────────────────────────
+    (function renderGaps() {
+      const select = $('#gap-category');
+      const cats = Array.from(new Set(DATA.results.map(r => r.category))).sort();
+      select.innerHTML = '<option value="all">All categories</option>' + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+      select.addEventListener('change', drawGaps);
+      drawGaps();
+      function drawGaps() {
+        const v = select.value;
+        const list = DATA.results.filter(r => r.exists_in_composio !== true && (v === 'all' || r.category === v));
+        const el = $('#gaps-list');
+        el.innerHTML = list.map(r => `
+          <div class="flex items-center justify-between border hairline rounded-md px-3 py-2 bg-white">
+            <div>
+              <div class="text-[12.5px] text-ink-900 font-medium">${esc(r.app)}</div>
+              <div class="text-[10.5px] text-ink-500 num">${esc(r.category)} &middot; pass1: ${(r.pass1_auth_methods || []).join(', ') || '-'}</div>
+            </div>
+            <span class="pill pill-mute">opportunity</span>
+          </div>
+        `).join('') || '<div class="text-[12.5px] text-ink-500">No apps in this category.</div>';
+      }
+    })();
+
+    // ── Apps table (sortable, filterable) ───────────────────────────
+    let sortKey = 'app';
+    let sortDir = 'asc';
+    let searchQ = '';
+    let filterStatus = 'all';
+
+    function statusFor(r) {
+      if (r.auth_agreement === 'disagree') return 'disagree';
+      if (r.auth_agreement === 'agree') return 'agree';
+      if (r.exists_in_composio === true) return 'in';
+      return 'out';
+    }
+    function pillFor(r) {
+      const s = statusFor(r);
+      if (s === 'disagree') return '<span class="pill pill-bad">disagree</span>';
+      if (s === 'agree')    return '<span class="pill pill-ok">agree</span>';
+      if (s === 'in')       return '<span class="pill pill-info">in catalog</span>';
+      return '<span class="pill pill-mute">not in catalog</span>';
+    }
+    function inCatalogFor(r) {
+      return r.exists_in_composio === true
+        ? '<span class="num text-emerald-700">yes</span>'
+        : '<span class="num text-ink-400">no</span>';
+    }
+    function authBadges(s) {
+      if (!s) return '<span class="text-ink-400 num">-</span>';
+      return s.split(',').map(x => `<span class="pill pill-info num" style="padding: 1px 6px; font-size: 10.5px">${esc(x.trim())}</span>`).join(' ');
+    }
+    function authBadgesList(arr) {
+      if (!arr || !arr.length) return '<span class="text-ink-400 num">-</span>';
+      return arr.map(x => `<span class="pill pill-mute num" style="padding: 1px 6px; font-size: 10.5px">${esc(x)}</span>`).join(' ');
+    }
+
+    function sortRows(rows) {
+      const k = sortKey, dir = sortDir === 'asc' ? 1 : -1;
+      return rows.slice().sort((a, b) => {
+        let va, vb;
+        switch (k) {
+          case 'app':    va = a.app.toLowerCase(); vb = b.app.toLowerCase(); break;
+          case 'category': va = a.category.toLowerCase(); vb = b.category.toLowerCase(); break;
+          case 'exists': va = a.exists_in_composio === true ? 1 : 0; vb = b.exists_in_composio === true ? 1 : 0; break;
+          case 'agreement':
+            va = a.auth_agreement === 'disagree' ? 0 : a.auth_agreement === 'agree' ? 1 : 2;
+            vb = b.auth_agreement === 'disagree' ? 0 : b.auth_agreement === 'agree' ? 1 : 2;
+            break;
+          case 'tools': va = a.composio_tool_count || 0; vb = b.composio_tool_count || 0; break;
+          default: va = a[k]; vb = b[k];
+        }
+        if (va < vb) return -1 * dir;
+        if (va > vb) return  1 * dir;
+        return 0;
+      });
+    }
+
+    function filterRows(rows) {
+      const q = searchQ.trim().toLowerCase();
+      return rows.filter(r => {
+        if (q && !(r.app.toLowerCase().includes(q) || r.category.toLowerCase().includes(q))) return false;
+        if (filterStatus === 'all') return true;
+        return statusFor(r) === filterStatus;
+      });
+    }
+
+    function renderTable() {
+      const rows = filterRows(sortRows(DATA.results));
+      const tbody = $('#apps-tbody');
+      tbody.innerHTML = rows.map(r => `
+        <tr class="border-b hairline table-row align-top">
+          <td class="py-2 px-2 text-ink-900 font-medium">${esc(r.app)}</td>
+          <td class="py-2 px-2 text-ink-700">${esc(r.category)}</td>
+          <td class="py-2 px-2">${inCatalogFor(r)}</td>
+          <td class="py-2 px-2">${authBadges(r.composio_auth_type)}</td>
+          <td class="py-2 px-2">${authBadgesList(r.pass1_auth_methods)}</td>
+          <td class="py-2 px-2">${pillFor(r)}</td>
+          <td class="py-2 px-2 num text-right text-ink-900">${r.composio_tool_count != null ? r.composio_tool_count.toLocaleString() : '-'}</td>
+        </tr>
+      `).join('');
+      $('#row-count').textContent = `Showing ${rows.length} of 100`;
+      // Update header arrows
+      $$('th.sortable').forEach(th => {
+        th.classList.toggle('active', th.dataset.sort === sortKey);
+        const arrow = th.querySelector('.arrow');
+        if (arrow) arrow.innerHTML = (th.dataset.sort === sortKey ? (sortDir === 'asc' ? '&#x2191;' : '&#x2193;') : '&#x2191;');
+      });
+    }
+
+    $$('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const k = th.dataset.sort;
+        if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        else { sortKey = k; sortDir = 'asc'; }
+        renderTable();
+      });
+    });
+    $('#search').addEventListener('input', (e) => { searchQ = e.target.value; renderTable(); });
+    $('#filter-status').addEventListener('change', (e) => { filterStatus = e.target.value; renderTable(); });
+
+    // Top tab filters (apply to the table only)
+    const tabAll = $('#tab-all'), tabDis = $('#tab-disagree'), tabGaps = $('#tab-gaps');
+    function setTab(t) {
+      [tabAll, tabDis, tabGaps].forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      if (t === tabAll)   { filterStatus = 'all';      $('#filter-status').value = 'all'; }
+      if (t === tabDis)   { filterStatus = 'disagree'; $('#filter-status').value = 'disagree'; }
+      if (t === tabGaps)  { filterStatus = 'out';      $('#filter-status').value = 'out'; }
+      renderTable();
+    }
+    tabAll.addEventListener('click', () => setTab(tabAll));
+    tabDis.addEventListener('click', () => setTab(tabDis));
+    tabGaps.addEventListener('click', () => setTab(tabGaps));
+
+    // ── Initial renders ─────────────────────────────────────────────
+    makeCoverageChart();
+    renderTable();
+
+    // Date in header / footer
+    const today = new Date().toISOString().slice(0, 10);
+    $('#header-date').textContent = today;
+    $('#footer-date').textContent = today;
+  </script>
+</body>
+</html>
